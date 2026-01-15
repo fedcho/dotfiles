@@ -2,6 +2,7 @@ tap "nikitabobko/tap"
 tap "yqrashawn/goku"
 tap "felixkratz/formulae"
 tap "oven-sh/bun"
+tap "anomalyco/tap"
 
 # command-line tools
 brew "fzf"
@@ -23,6 +24,7 @@ brew "pgcli"
 brew "yazi"
 brew "btop"
 brew "serie"
+brew "anomalyco/tap/opencode"
 
 # for evaluation
 # brew "resterm"  # https://github.com/unkn0wn-root/restermn
