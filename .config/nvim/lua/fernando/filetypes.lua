@@ -1,6 +1,7 @@
 vim.filetype.add({
   filename = {
     ["Jenkinsfile"] = "groovy",
+    [".sqruff"] = "ini",
   },
   pattern = {
     [".env"] = "sh",

@@ -1,4 +1,5 @@
 *.bak
+*.log
 session.vim
 .cache
 .DS_store
