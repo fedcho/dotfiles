@@ -42,6 +42,7 @@ return {
       css = { "prettier" },
       html = { "prettier" },
       json = { "prettier" },
+      jsonc = { "prettierd", "prettier", stop_after_first = true },
       yaml = { "prettier" },
       markdown = { "prettier" },
       vue = { "prettier" },
