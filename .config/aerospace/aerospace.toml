@@ -122,7 +122,6 @@ alt-s = 'workspace S'
 alt-d = 'workspace D'
 alt-f = 'workspace F'
 
-alt-y = 'workspace Y'
 alt-u = 'workspace U'
 alt-i = 'workspace I'
 alt-o = 'workspace O'
@@ -139,7 +138,6 @@ alt-shift-s = ['move-node-to-workspace S', 'workspace S']
 alt-shift-d = ['move-node-to-workspace D', 'workspace D']
 alt-shift-f = ['move-node-to-workspace F', 'workspace F']
 
-alt-shift-y = ['move-node-to-workspace Y', 'workspace Y']
 alt-shift-u = ['move-node-to-workspace U', 'workspace U']
 alt-shift-i = ['move-node-to-workspace I', 'workspace I']
 alt-shift-o = ['move-node-to-workspace O', 'workspace O']
