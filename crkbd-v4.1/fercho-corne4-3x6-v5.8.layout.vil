@@ -17,8 +17,8 @@
       [
         "KC_TRNS",
         "OSM(MOD_LSFT)",
-        "OSM(MOD_LALT)",
         "OSM(MOD_LCTL)",
+        "OSM(MOD_LALT)",
         "OSM(MOD_LGUI)",
         "KC_NO",
         "KC_NO"
@@ -87,8 +87,8 @@
       [
         "KC_TRNS",
         "OSM(MOD_RSFT)",
-        "OSM(MOD_RALT)",
         "OSM(MOD_RCTL)",
+        "OSM(MOD_RALT)",
         "OSM(MOD_RGUI)",
         "LSFT(KC_6)",
         "KC_TRNS"
@@ -653,4 +653,3 @@
     "21": 0
   }
 }
-
