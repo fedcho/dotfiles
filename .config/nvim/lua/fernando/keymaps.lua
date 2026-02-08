@@ -1,8 +1,13 @@
 local set = vim.keymap.set
 
--- Set highlight on search, but clear on pressing <Esc> in normal mode
-vim.opt.hlsearch = true
+-- Clear highlights on search when pressing <Esc> in normal mode
+--  See `:help hlsearch`
 set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+
+-- Quickfix navigation
+set("n", "<leader>qd", vim.diagnostic.setloclist, { desc = "Quickfix: Diagnostics" })
+set("n", "<leader>qo", ":copen<CR>", { desc = "Quickfix: Open" })
+set("n", "<leader>qq", ":cclose<CR>", { desc = "Quickfix: Close" })
 
 -- Split window management
 -- Disabled in favor of Harpoon. Testing the change.
@@ -10,7 +15,6 @@ set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 -- set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
 -- set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 -- set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
-set("n", "<leader>x", "<C-w>c", { desc = "Close the current window" })
 
 -- Control the size of splits (height/width)
 set("n", "<M-,>", "<c-w>5<")
@@ -77,37 +81,6 @@ set("n", "<leader>ku", vim.cmd.UndotreeToggle, { desc = "[U]ndo tree" })
 set("n", "<leader>kd", vim.cmd.DBUIToggle, { desc = "DBU[I]" })
 set("n", "<leader>kx", "<cmd>source %<CR>", { desc = "Source file" })
 set("n", "<leader>ks", "<cmd>mksession! session.vim<CR>", { desc = "[S]ave session" })
-
--- Quickfix navigation
-set("n", "<leader>qo", ":copen<CR>", { desc = "Open quickfix list" })
-set("n", "<leader>qq", ":cclose<CR>", { desc = "Close quickfix list" })
-set("n", "<leader>qd", vim.diagnostic.setloclist, { desc = "Diagnostics" })
-
--- [[ Basic Autocommands ]]
---  See `:help lua-guide-autocommands`
-
--- Highlight when yanking (copying) text
-vim.api.nvim_create_autocmd("TextYankPost", {
-  desc = "Highlight when yanking (copying) text",
-  group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
-  callback = function()
-    vim.hl.on_yank()
-  end,
-})
-
--- Disable auto-comments insertion
-vim.api.nvim_create_autocmd("FileType", {
-  group = vim.api.nvim_create_augroup("no_auto_comment", {}),
-  callback = function()
-    vim.opt_local.formatoptions:remove({ "c", "r", "o" })
-  end,
-})
-
--- open help in vertical split
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "help",
-  command = "wincmd L",
-})
 
 -- Disable annoying legacy navigation
 vim.keymap.set("n", "Q", "<nop>")

@@ -48,14 +48,12 @@ return {
       vue = { "prettier" },
       sh = { "shfmt" },
       handlebars = { "prettier" },
-      ejs = { "prettier" },
       sql = { "sqruff" },
     },
     formatters = {
       prettier = {
         options = {
           ext_parsers = {
-            ejs = "html",
             vil = "json",
           },
         },

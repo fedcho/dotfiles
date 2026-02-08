@@ -30,6 +30,8 @@ vim.opt.rtp:prepend(lazypath)
 
 require("fernando.options")
 require("fernando.filetypes")
+require("fernando.keymaps")
+require("fernando.autocommands")
 
 -- Setup lazy and load my plugins
 require("lazy").setup({ { import = "fernando.plugins" } }, {
@@ -40,5 +42,3 @@ require("lazy").setup({ { import = "fernando.plugins" } }, {
     border = "rounded",
   },
 })
-
-require("fernando.keymaps")

@@ -22,7 +22,6 @@ return {
         },
       },
     },
-    "folke/lazydev.nvim",
   },
   --- @module 'blink.cmp'
   --- @type blink.cmp.Config
@@ -75,14 +74,9 @@ return {
     sources = {
       default = { "lsp", "buffer", "snippets", "path" },
       per_filetype = {
-        lua = { inherit_defaults = true, "lazydev" },
         sql = { "snippets", "dadbod", "buffer" },
       },
       providers = {
-        lazydev = {
-          module = "lazydev.integrations.blink",
-          score_offset = 100,
-        },
         dadbod = {
           name = "Dadbod",
           module = "vim_dadbod_completion.blink",
