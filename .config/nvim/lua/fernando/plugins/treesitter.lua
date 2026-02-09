@@ -17,6 +17,9 @@ return {
       "vim",
       "vimdoc",
       "sql",
+      "elixir",
+      "heex",
+      "git_rebase",
     }
     require("nvim-treesitter").install(filetypes)
     vim.api.nvim_create_autocmd("FileType", {
