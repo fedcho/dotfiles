@@ -17,7 +17,7 @@ return {
       "saghen/blink.cmp",
 
       -- Schema information
-      -- "b0o/SchemaStore.nvim",
+      "b0o/SchemaStore.nvim",
     },
     config = function()
       vim.api.nvim_create_autocmd("LspAttach", {
@@ -131,24 +131,24 @@ return {
         },
 
         jsonls = {
-          -- settings = {
-          --   json = {
-          --     schemas = require("schemastore").json.schemas(),
-          --     validate = { enable = true },
-          --   },
-          -- },
+          settings = {
+            json = {
+              schemas = require("schemastore").json.schemas(),
+              validate = { enable = true },
+            },
+          },
         },
 
         yamlls = {
-          -- settings = {
-          --   yaml = {
-          --     schemaStore = {
-          --       enable = false,
-          --       url = "",
-          --     },
-          --     schemas = require("schemastore").yaml.schemas(),
-          --   },
-          -- },
+          settings = {
+            yaml = {
+              schemaStore = {
+                enable = false,
+                url = "",
+              },
+              schemas = require("schemastore").yaml.schemas(),
+            },
+          },
         },
 
         elixirls = {
