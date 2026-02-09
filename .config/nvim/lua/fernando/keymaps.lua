@@ -4,10 +4,8 @@ local set = vim.keymap.set
 --  See `:help hlsearch`
 set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
--- Quickfix navigation
-set("n", "<leader>qd", vim.diagnostic.setloclist, { desc = "Quickfix: Diagnostics" })
-set("n", "<leader>qo", ":copen<CR>", { desc = "Quickfix: Open" })
-set("n", "<leader>qq", ":cclose<CR>", { desc = "Quickfix: Close" })
+-- Diagnostics
+set("n", "<leader>d", vim.diagnostic.setloclist, { desc = "[D]iagnostics" })
 
 -- Split window management
 -- Disabled in favor of Harpoon. Testing the change.
