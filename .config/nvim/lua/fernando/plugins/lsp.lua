@@ -204,9 +204,6 @@ return {
               -- NOTE: this is a lot slower and will cause issues when working on your own configuration.
               --  See https://github.com/neovim/nvim-lspconfig/issues/3189
               library = vim.api.nvim_get_runtime_file("", true),
-              -- library = vim.tbl_filter(function(d)
-              --   return not d:match(vim.fn.stdpath("config") .. "/?a?f?t?e?r?")
-              -- end, vim.api.nvim_get_runtime_file("", true)),
             },
           })
         end,
@@ -218,6 +215,7 @@ return {
 
       -- Globally configure all LSP floating preview popups (like hover, signature help, etc)
       local open_floating_preview = vim.lsp.util.open_floating_preview
+      ---@diagnostic disable-next-line: duplicate-set-field
       function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
         opts = opts or {}
         opts.border = opts.border or "rounded" -- Set border to rounded
