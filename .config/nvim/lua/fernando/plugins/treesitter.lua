@@ -20,12 +20,25 @@ return {
       "elixir",
       "heex",
       "git_rebase",
+      "css",
+      "javascript",
+      "typescript",
+      "tsx",
     }
+
     require("nvim-treesitter").install(filetypes)
+
     vim.api.nvim_create_autocmd("FileType", {
       pattern = filetypes,
       callback = function()
         vim.treesitter.start()
+      end,
+    })
+
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = "typescriptreact",
+      callback = function(args)
+        vim.treesitter.start(args.buf, "tsx")
       end,
     })
   end,
