@@ -6,16 +6,12 @@ abbr -a chop 'tmux-chop'
 abbr -a osdm "osascript -e 'tell application \"System Events\" to tell appearance preferences to set dark mode to not dark mode'"
 
 # Environment
-# set -x ATAC_KEY_BINDINGS ~/.config/atac/key_bindings.toml
+set -gx EDITOR nvim
+set -x BUN_INSTALL "$HOME/.bun"
+set -x PATH $BUN_INSTALL/bin $PATH
 
-# pnpm
-if test -e ~/Library/pnpm 
-	set -gx PNPM_HOME "/Users/fernando/Library/pnpm"
-	if not string match -q -- $PNPM_HOME $PATH
-	  set -gx PATH "$PNPM_HOME" $PATH
-	end
-end
-# pnpm end
+# Options
+set fish_cursor_insert block 
 
 # Plugins
 if test -f  ~/.asdf/asdf.fish
@@ -27,8 +23,3 @@ end
 fzf --fish | source
 zoxide init fish | source
 
-# bun
-set --export BUN_INSTALL "$HOME/.bun"
-set --export PATH $BUN_INSTALL/bin $PATH
-
-set fish_cursor_insert block 
