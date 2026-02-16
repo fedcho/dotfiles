@@ -15,9 +15,6 @@ return {
 
       -- Allows extra capabilities provided by blink-cmp
       "saghen/blink.cmp",
-
-      -- Schema information
-      "b0o/SchemaStore.nvim",
     },
     config = function()
       vim.api.nvim_create_autocmd("LspAttach", {
@@ -130,26 +127,8 @@ return {
           },
         },
 
-        jsonls = {
-          settings = {
-            json = {
-              schemas = require("schemastore").json.schemas(),
-              validate = { enable = true },
-            },
-          },
-        },
-
-        yamlls = {
-          settings = {
-            yaml = {
-              schemaStore = {
-                enable = false,
-                url = "",
-              },
-              schemas = require("schemastore").yaml.schemas(),
-            },
-          },
-        },
+        jsonls = {},
+        yamlls = {},
 
         elixirls = {
           root_dir = require("lspconfig.util").root_pattern({ "mix.exs" }),
