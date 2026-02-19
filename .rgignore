@@ -15,3 +15,6 @@
 !.github
 !.studio
 !.sqruff
+!.oxfmt*
+!.gitignore
+!.dockerignore
