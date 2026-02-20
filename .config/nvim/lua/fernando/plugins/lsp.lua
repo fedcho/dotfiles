@@ -146,10 +146,10 @@ return {
       vim.list_extend(ensure_installed, {
         "lua_ls",
         "stylua",
-        "prettier",
         "eslint_d",
         "shfmt",
         "sqruff",
+        "oxfmt",
       })
 
       require("mason-tool-installer").setup({ ensure_installed = ensure_installed })

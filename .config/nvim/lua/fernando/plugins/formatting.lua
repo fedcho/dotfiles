@@ -35,28 +35,30 @@ return {
       --
       -- You can use 'stop_after_first' to run the first available formatter from the list
       -- javascript = { "prettierd", "prettier", stop_after_first = true },
-      javascript = { "prettier", "injected" },
-      typescript = { "prettier", "injected" },
-      javascriptreact = { "prettier", "injected" },
-      typescriptreact = { "prettier", "injected" },
-      css = { "prettier" },
-      html = { "prettier" },
-      json = { "prettier" },
-      jsonc = { "prettierd", "prettier", stop_after_first = true },
-      yaml = { "prettier" },
-      markdown = { "prettier" },
-      vue = { "prettier" },
+      javascript = { "oxfmt" },
+      javascriptreact = { "oxfmt" },
+      typescript = { "oxfmt", "injected" },
+      typescriptreact = { "oxfmt" },
+      json = { "oxfmt" },
+      jsonc = { "oxfmt" },
+      vue = { "oxfmt" },
+      css = { "oxfmt" },
+      html = { "oxfmt" },
+      yaml = { "oxfmt" },
+      markdown = { "oxfmt" },
+      handlebars = { "oxfmt" },
       sh = { "shfmt" },
-      handlebars = { "prettier" },
       sql = { "sqruff" },
     },
     formatters = {
-      prettier = {
-        options = {
-          ext_parsers = {
-            vil = "json",
-          },
-        },
+      oxfmt = {
+        args = function(_, ctx)
+          local filename = ctx.filename
+          if filename and filename:match("%.vil$") then
+            filename = filename:gsub("%.vil$", ".json")
+          end
+          return { "--stdin-filepath", filename }
+        end,
       },
     },
   },
