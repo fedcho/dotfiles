@@ -8,7 +8,6 @@ DOTFILES=(
 	".tool-versions"
 	".tmux.conf"
 	".wezterm.lua"
-	".config/karabiner.edn"
 	".config/nvim"
 	".config/aerospace"
 	".config/fish/config.fish"
@@ -85,14 +84,10 @@ cmd_install() {
 
 	echo "Installing uv packages..."
 	uv tool install --python 3.13 posting # https://github.com/darrenburns/posting
-	uv tool install harlequin             # https://github.com/tconbeer/harlequin
 
 	echo "Installing asdf packages..."
 	asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 	asdf install nodejs
-
-	echo "Installing js packages..."
-	bun add -g taskbook # https://github.com/klaudiosinani/taskbook
 
 	# scripts
 	./github.sh

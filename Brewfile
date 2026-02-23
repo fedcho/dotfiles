@@ -1,5 +1,4 @@
 tap "nikitabobko/tap"
-tap "yqrashawn/goku"
 tap "felixkratz/formulae"
 tap "oven-sh/bun"
 tap "anomalyco/tap"
@@ -26,16 +25,12 @@ brew "btop"
 brew "serie"
 brew "anomalyco/tap/opencode"
 
-# for evaluation
-# brew "resterm"  # https://github.com/unkn0wn-root/restermn
-# brew "phantom"  # https://github.com/aku11i/phantom
-
 ### Notes
 # `serie`: git-commit graph. could be useful
 # `posting`: good candidate for http client adoption
 # `resterm`: for inspiration/reference since it uses a text-based request builder
 # `harlequin`: decent sql-client, not sure how to navigate it but worth trying
-# `phantom`: support git-worktres and tmux but windows, panes based, not sessions
+# `phantom`: support git-worktres and tmux but windows/panes-based, not sessions
 
 # dev
 brew "stylua"
