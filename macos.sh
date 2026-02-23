@@ -16,7 +16,7 @@ defaults write com.apple.dock wvous-br-corner -int 0
 
 # --- Finder ---
 defaults write com.apple.finder NewWindowTarget -string "PfLo"
-defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
+defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"mac
 defaults write com.apple.finder ShowPathbar -bool true
 defaults write com.apple.finder ShowStatusBar -bool true
 defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
@@ -31,9 +31,10 @@ defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 defaults write com.apple.spaces spans-displays -bool true
 
 # --- Keyboard ---
-defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain KeyRepeat -int 2
 defaults write NSGlobalDomain InitialKeyRepeat -int 15
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+defaults write -g ApplePressAndHoldEnabled -bool false
 
 # --- Text Input ---
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
@@ -75,3 +76,11 @@ killall Dock
 killall Finder
 killall ControlCenter
 killall cfprefsd
+
+# --- Information ---
+cat <<EOF
+macOS settings applied.
+
+IMPORTANT!
+A reboot is required for some of the changes to take effect.
+EOF

@@ -92,7 +92,7 @@ cmd_install() {
 	asdf install nodejs
 
 	echo "Installing js packages..."
-	bun add taskbook # https://github.com/klaudiosinani/taskbook
+	bun add -g taskbook # https://github.com/klaudiosinani/taskbook
 
 	# scripts
 	./github.sh
