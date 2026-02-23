@@ -34,21 +34,21 @@ if [[ ! -f "$SSH_CONFIG" ]] || ! grep -q "^$SSH_HOST_BLOCK" "$SSH_CONFIG"; then
 	EOF
 fi
 
-if [[ "${1:-}" == "-i" ]]; then
-	if ! command -v gh >/dev/null 2>&1; then
-		echo "gh CLI not found. Install it before using -i." >&2
-		exit 1
-	fi
-
-	gh auth login
-	gh ssh-key add "$SSH_IDENTITY.pub" --type signing || true
-else
-	cat <<-EOF
+if ! command -v gh >/dev/null 2>&1; then
+	cat <<-EOF >&2
 		SSH keys for GitHub are now available. 
-		Add your key to github.com with:
+		The gh CLI was not found. Add your key to github.com manually:
 
-		  gh auth login
-		  gh ssh-key add "$SSH_IDENTITY.pub" --type signing
+		gh ssh-key add "$SSH_IDENTITY.pub" -t "GitHub CLI ($(hostname -s))"
 
 	EOF
+	exit 1
 fi
+
+AUTH_STATE=$(gh auth status --active -h github.com --json hosts --jq ".hosts | add[0].state" 2>/dev/null)
+
+if [[ "$AUTH_STATE" != "success" ]]; then
+	gh auth login --web --clipboard --skip-ssh-key -h github.com -p ssh -s admin:public_key
+fi
+
+gh ssh-key add "$SSH_IDENTITY.pub" -t "GitHub CLI ($(hostname -s))" || true
