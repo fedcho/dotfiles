@@ -176,6 +176,10 @@ if.app-id = 'com.apple.Passwords'
 run = 'layout floating'
 
 [[on-window-detected]]
+if.app-id = 'com.apple.FaceTime'
+run = 'layout floating'
+
+[[on-window-detected]]
 if.app-id = 'today.vial'
 run = 'move-node-to-workspace W'
   
@@ -204,6 +208,6 @@ if.app-name-regex-substring = 'Messages|Slack|WhatsApp'
 run = 'move-node-to-workspace O'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Finder|FaceTime|Mail|Notes|Reminders|Calendar|Photos|Bear|Preview|Karabiner-Elements'
+if.app-name-regex-substring = 'Finder|Mail|Notes|Reminders|Calendar|Photos|Bear|Preview'
 run = 'move-node-to-workspace F'
 
