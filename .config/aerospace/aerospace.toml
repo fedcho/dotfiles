@@ -116,6 +116,7 @@ alt-a = 'workspace A'
 alt-s = 'workspace S'
 alt-d = 'workspace D'
 alt-f = 'workspace F'
+alt-g = 'workspace G'
 
 alt-u = 'workspace U'
 alt-i = 'workspace I'
@@ -132,6 +133,7 @@ alt-shift-a = ['move-node-to-workspace A', 'workspace A']
 alt-shift-s = ['move-node-to-workspace S', 'workspace S']
 alt-shift-d = ['move-node-to-workspace D', 'workspace D']
 alt-shift-f = ['move-node-to-workspace F', 'workspace F']
+alt-shift-g = ['move-node-to-workspace G', 'workspace G']
 
 alt-shift-u = ['move-node-to-workspace U', 'workspace U']
 alt-shift-i = ['move-node-to-workspace I', 'workspace I']
@@ -147,7 +149,12 @@ alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 alt-shift-semicolon = 'mode service'
 
 [workspace-to-monitor-force-assignment]
-W = 'secondary'
+W = ['dell.*(2)', 'secondary']
+A = ['built-in','secondary'] 
+S = ['built-in','secondary']
+D = ['built-in','secondary'] 
+F = ['built-in','secondary']
+G = ['built-in','secondary']
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -192,22 +199,30 @@ if.app-id = 'com.google.Chrome'
 run = 'move-node-to-workspace U'
 
 [[on-window-detected]]
-if.app-id = 'com.apple.Safari'
-run = 'move-node-to-workspace U'
-
-[[on-window-detected]]
-if.app-id = 'app.zen-browser.zen'
-run = 'move-node-to-workspace U'
-
-[[on-window-detected]]
 if.app-id = 'com.github.wez.wezterm'
 run = 'move-node-to-workspace I'
 
+# O is still available
+
 [[on-window-detected]]
-if.app-name-regex-substring = 'Messages|Slack|WhatsApp'
-run = 'move-node-to-workspace O'
+if.app-id = 'com.usebruno.app '
+run = 'move-node-to-workspace P'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Messages|WhatsApp|FaceTime'
+run = 'move-node-to-workspace A'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Slack'
+run = 'move-node-to-workspace S'
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Finder|Mail|Notes|Reminders|Calendar|Photos|Bear|Preview'
+run = 'move-node-to-workspace D'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Safari'
 run = 'move-node-to-workspace F'
 
+[[on-window-detected]]
+run = 'move-node-to-workspace G'
