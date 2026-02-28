@@ -108,7 +108,7 @@ return {
 
         -- Keep an eye on https://github.com/pmizio/typescript-tools.nvim
         -- as a pontential replacement for this.
-        ts_ls = {
+       ts_ls = {
           capabilities = {
             textDocument = {
               formatting = {
@@ -116,14 +116,6 @@ return {
                 documentFormatting = false,
               },
             },
-          },
-          filetypes = {
-            "javascript",
-            "javascriptreact",
-            "javascript.jsx",
-            "typescript",
-            "typescriptreact",
-            "typescript.tsx",
           },
         },
 
@@ -139,6 +131,7 @@ return {
 
         tailwindcss = {},
         clojure_lsp = {},
+        oxlint = {},
       }
 
       -- Servers installation

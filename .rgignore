@@ -16,5 +16,6 @@
 !.studio
 !.sqruff
 !.oxfmt*
+!.oxlint*
 !.gitignore
 !.dockerignore
