@@ -11,5 +11,6 @@ vim.filetype.add({
   extension = {
     hbs = "html",
     vil = "json",
+    libsonnet="jsonnet"
   },
 })
