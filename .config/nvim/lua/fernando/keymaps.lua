@@ -8,11 +8,10 @@ set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 set("n", "<leader>d", vim.diagnostic.setloclist, { desc = "[D]iagnostics" })
 
 -- Split window management
--- Disabled in favor of Harpoon. Testing the change.
--- set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
--- set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
--- set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
--- set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
+set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
+set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
+set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 -- Control the size of splits (height/width)
 set("n", "<M-,>", "<c-w>5<")
