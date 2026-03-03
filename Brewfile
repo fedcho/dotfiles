@@ -46,6 +46,7 @@ brew "fisher"
 # containers
 brew "docker"
 brew "colima"
+brew "kubectl"
 
 # fonts
 cask "font-jetbrains-mono"
