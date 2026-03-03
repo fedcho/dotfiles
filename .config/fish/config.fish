@@ -3,7 +3,7 @@ abbr -a lh "ls -A | egrep '^\.'"
 abbr -a kube 'kubectl'
 abbr -a doco 'docker compose'
 abbr -a chop 'tmux-chop'
-abbr -a osdm "osascript -e 'tell application \"System Events\" to tell appearance preferences to set dark mode to not dark mode'"
+abbr -a dark "osascript -e 'tell application \"System Events\" to tell appearance preferences to set dark mode to not dark mode'"
 
 # Environment
 set -gx EDITOR nvim
