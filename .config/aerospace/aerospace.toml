@@ -179,10 +179,6 @@ alt-comma = 'resize smart -50'
 alt-period = 'resize smart +50'
 
 [[on-window-detected]]
-if.app-id = 'com.apple.Passwords'
-run = 'layout floating'
-
-[[on-window-detected]]
 if.app-id = 'com.apple.FaceTime'
 run = 'layout floating'
 
@@ -217,11 +213,11 @@ if.app-name-regex-substring = 'Slack'
 run = 'move-node-to-workspace S'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Finder|Mail|Notes|Reminders|Calendar|Photos|Bear|Preview'
+if.app-name-regex-substring = 'Finder|Photos'
 run = 'move-node-to-workspace D'
 
 [[on-window-detected]]
-if.app-id = 'com.apple.Safari'
+if.app-name-regex-substring = 'Mail|Notes|Reminders|Calendar|Bear|Safari'
 run = 'move-node-to-workspace F'
 
 [[on-window-detected]]
