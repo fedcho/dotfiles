@@ -15,6 +15,7 @@ return {
       { "<leader>k", group = "[K]ommands", mode = { "n", "v" } },
       { "<leader>h", group = "[H]unk", mode = { "n", "v" } },
       { "<leader>a", group = "[A]lternatives", mode = { "n", "v", "x" } },
+      { "<leader>j", group = "[J]umps" },
     },
   },
 }
