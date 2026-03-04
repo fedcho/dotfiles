@@ -53,16 +53,16 @@ return {
       sh = { "shfmt" },
       sql = { "sqruff" },
     },
-    -- formatters = {
-    --   oxfmt = {
-    --     args = function(_, ctx)
-    --       local filename = ctx.filename
-    --       if filename and filename:match("%.vil$") then
-    --         filename = filename:gsub("%.vil$", ".json")
-    --       end
-    --       return { "--stdin-filepath", filename }
-    --     end,
-    --   },
-    -- },
+    formatters = {
+      oxfmt = {
+        args = function(_, ctx)
+          local filename = ctx.filename
+          if filename and filename:match("%.vil$") then
+            filename = filename:gsub("%.vil$", ".json")
+          end
+          return { "--stdin-filepath", filename }
+        end,
+      },
+    },
   },
 }
