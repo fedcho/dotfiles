@@ -8,6 +8,7 @@ DOTFILES=(
 	".tool-versions"
 	".tmux.conf"
 	".wezterm.lua"
+	".asdfrc"
 	".config/nvim"
 	".config/aerospace"
 	".config/fish/config.fish"
