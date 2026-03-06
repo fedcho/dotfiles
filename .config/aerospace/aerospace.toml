@@ -195,13 +195,11 @@ if.app-id = 'com.google.Chrome'
 run = 'move-node-to-workspace U'
 
 [[on-window-detected]]
-if.app-id = 'com.github.wez.wezterm'
-run = 'move-node-to-workspace I'
-
-# O is still available
+if.app-id = 'com.usebruno.app'
+run = 'move-node-to-workspace O'
 
 [[on-window-detected]]
-if.app-id = 'com.usebruno.app'
+if.app-id = 'com.github.wez.wezterm'
 run = 'move-node-to-workspace P'
 
 [[on-window-detected]]
@@ -222,3 +220,4 @@ run = 'move-node-to-workspace F'
 
 [[on-window-detected]]
 run = 'move-node-to-workspace G'
+
