@@ -6,59 +6,57 @@ layout:
 layers:
   DEF:
     - ["Esc", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", $$mdi:backspace-outline$$]
-    - ["Alt", "A", "S", "D", "F", "G", "H", "J", "K", "L", ";", "Alt"]
+    - [$$mdi:apple-keyboard-command$$, "A", "S", "D", "F", "G", "H", "J", "K", "L", ";", $$mdi:keyboard-return$$]
     - ["Shift", "Z", "X", "C", "V", "B", "N", "M", ",", ".", "/", "Shift"]
     - {h: Alt, t: Del }
     - {h: Ctrl, t: $$mdi:keyboard-tab$$}
     - {h: NAV, t: Esc}
     - {h: SYM, t: $$mdi:backspace-outline$$}
     - $$mdi:keyboard-space$$
-    - {h: Gui, t: $$mdi:keyboard-return$$}
+    - $$mdi:keyboard-return$$
   NAV:
-    - [{t: "Esc", type: trans}, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, {t: $$mdi:backspace-outline$$, type: trans}]
-    - [{t: "Alt", type: trans}, "OSM Shift", "OSM Alt", "OSM Ctrl", "OSM Gui", null, $$mdi:chevron-left$$, $$mdi:chevron-down$$, $$mdi:chevron-up$$, $$mdi:chevron-right$$, "Caps Lock", {t: "Alt", type: trans}] 
-    - [{t: "Shift", type: trans}, null, null, null, null, null, null, null, ",", ".", null, {t: "Shift", type: trans}]
+    - [{t: "Esc", type: trans}, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, {t: "Bksp", type: trans}]
+    - [{t: "Gui", type: trans}, "OSM Shift", "OSM Alt", "OSM Ctrl", "OSM Gui", null, $$mdi:chevron-left$$, $$mdi:chevron-down$$, $$mdi:chevron-up$$, $$mdi:chevron-right$$, {s: '"', t: "'"}, {t: "Enter", type: trans}] 
+    - [{t: "Shift", type: trans}, "`", null, null, null, null, null, null, "<", ">", "?", {t: "Shift", type: trans}]
     - {h: Alt, t: Del }
     - {h: Ctrl, t: $$mdi:keyboard-tab$$}
     - {type: held}
     - {h: MEDIA, t: $$mdi:backspace-outline$$}
     - $$mdi:keyboard-space$$
-    - {h: Gui, t: $$mdi:keyboard-return$$}
+    - $$mdi:keyboard-return$$
   SYM:
-    - [{t: "Esc", type: trans}, "[", "]", "{", "}", "%", "#", "*", "'", "-", "+", {t: $$mdi:backspace-outline$$, type: trans}]
-    - [{t: "Alt", type: trans}, "!", "=", "(", ")", "$", "^", "OSM GUI", "OSM Ctrl", "OSM Alt", "OSM Shift", {t: "Alt", type: trans}]
-    - [{t: "Shift", type: trans}, "<", "|", "-", ">", "\\", "&", "_", "/", "~", "€", {t: "Shift", type: trans}]
+    - [{t: "Esc", type: trans}, "[", "]", "{", "}", "%", "@", "&", "*", "-", "+", {t: "Bksp", type: trans}]
+    - [{t: "Gui", type: trans}, "!", "=", "(", ")", "$", "^", "OSM Gui", "OSM Ctrl", "OSM Alt", "OSM Shift", {t: "Enter", type: trans}]
+    - [{t: "Shift", type: trans}, "<", "|", "~", ">", "\\", "€", "#", ":", "_", "/", {t: "Shift", type: trans}]
     - {h: Alt, t: Del }
     - {h: Ctrl, t: $$mdi:keyboard-tab$$}
     - {h: NUM, t: Esc}
     - {type: held}
     - $$mdi:keyboard-space$$
-    - {h: Gui, t: $$mdi:keyboard-return$$}
+    - $$mdi:keyboard-return$$
   NUM:
     - [null, "€", "#", "$", "%", null, "/", "7", "8", "9", "-", null]
     - [null, null, null, "(", ")", null, "*", "4", "5", "6", "+", null]
-    - [null, null, null, null, null, null, "0", "1", "2", "3", ".", null]
+    - [null, null, null, null, "_", null, ".", "1", "2", "3", "=", null]
     - {h: Alt, t: Del }
     - {h: Ctrl, t: $$mdi:keyboard-tab$$}
     - {type: held}
-    - {h: SYM, t: $$mdi:backspace-outline$$, type: ghost}
+    - {h: MEDIA, t: $$mdi:backspace-outline$$, type: ghost}
+    - "0"
     - $$mdi:keyboard-space$$
-    - {h: Gui, t: $$mdi:keyboard-return$$}
   MEDIA:
-    - ["Reboot", null, "RBG M+","RGB TOG", "RGB M-", null, null, "Bri -", null, "Bri +", null, null]
-    - [null, null, "RGB Hue+", "RGB Sat+", "RGB Bri+", null, null, "Vol -", "Mute", "Vol +", null, null]
-    - [null, null, "RGB Hue-", "RGB Sat-", "RGB Bri-", null, null, $$mdi:skip-previous$$, $$mdi:play-pause$$, $$mdi:skip-next$$, null, null]
+    - [null, null, "Vol -", "Mute", "Vol +", null, null, "RBG M+","RGB TOG", "RGB M-", null, "Reboot"]
+    - [null, null, $$mdi:skip-previous$$, $$mdi:play-pause$$, $$mdi:skip-next$$, null, null, "RGB Hue+", "RGB Sat+", "RGB Bri+", null, null]
+    - [null, null,  "Bri -", "Caps Lock", "Bri +", null, null, "RGB Hue-", "RGB Sat-", "RGB Bri-", null, null]
     - {h: Alt, t: Del }
     - {h: Ctrl, t: $$mdi:keyboard-tab$$}
     - {type: held}
     - {type: held}
     - $$mdi:keyboard-space$$
-    - {h: Gui, t: $$mdi:keyboard-return$$}
+    - $$mdi:keyboard-return$$
 combos:
-  - {p: [2, 3], k: "@", l: ["DEF"]}
   - {p: [3, 4], k: "`", l: ["DEF"]}
-  - {p: [7, 8], k: "\"", l: ["DEF"]}
-  - {p: [15, 16], k: "?", l: ["DEF"]}
+  - {p: [15, 16], k: $$mdi:keyboard-return$$, l: ["DEF"]}
   - {p: [19, 20], k: ":", l: ["DEF"]}
 draw_config:
   glyph_tap_size: 18
