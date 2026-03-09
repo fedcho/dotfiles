@@ -17,6 +17,7 @@ DOTFILES=(
 	".config/opencode/opencode.json"
 	".local/bin/tmux-chop"
 	".local/bin/tmux-auto"
+	".tmux/themes"
 )
 
 show_help() {
