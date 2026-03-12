@@ -1,0 +1,65 @@
+# Keymap-drawer: A visualizer for keyboard keymaps  
+# https://keymap-drawer.streamlit.app/
+layout:
+  qmk_keyboard: crkbd/rev4_1
+  layout_name: LAYOUT_split_3x6_3
+layers:
+  DEF:
+    - [$$mdi:keyboard-esc$$, "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", $$mdi:backspace-outline$$]
+    - [NUM, "A", "S", "D", "F", "G", "H", "J", "K", "L", ";", "'"]
+    - [$$mdi:apple-keyboard-shift$$, "Z", "X", "C", "V", "B", "N", "M", ",", ".", "/",  $$mdi:apple-keyboard-shift$$]
+    - {h: Alt, t: $$mdi:backspace-reverse-outline$$}
+    - {h: Ctrl, t: $$mdi:keyboard-tab$$}
+    - {h: NAV, t: $$mdi:keyboard-esc$$}
+    - {h: SYM, t: $$mdi:backspace-outline$$}
+    - $$mdi:keyboard-space$$
+    - {h: Alt, t: $$mdi:keyboard-return$$}
+  NAV:
+    - [null, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, null]
+    - [null, "OSM Shift", "OSM Alt", "OSM Ctrl", "OSM Gui", null, $$mdi:chevron-left$$, $$mdi:chevron-down$$, $$mdi:chevron-up$$, $$mdi:chevron-right$$, ":", '"'] 
+    - [null, null, null, null, null, null, null, null, null, null, "?", null]
+    - null
+    - null
+    - {type: held}
+    - null
+    - null
+    - null
+  SYM:
+    - ["`", "[", "]", "{", "}", "%", "@", "&", "*", "-", "+", null]
+    - [null, "!", "=", "(", ")", "$", "^", "OSM Gui", "OSM Ctrl", "OSM Alt", "OSM Shift", null]
+    - [null, "<", "|", "-", ">", "\\", "€", "#", "~", "_", "/", null]
+    - null
+    - null
+    - null
+    - {type: held}
+    - null
+    - null
+  NUM:
+    - [null, null, null, null, null, null, "/", "7", "8", "9", "-", null]
+    - [{type: held}, "OSM Shift", "OSM Alt", "OSM Ctrl", "OSM Gui", null, "*", "4", "5", "6", "+", null]
+    - [null, null, null, null, null, null, ",", "1", "2", "3", ".", null]
+    - null
+    - null
+    - null
+    - null
+    - null
+    - null
+  MEDIA:
+    - [null, null, $$material:wb_sunny$$, null, $$material:sunny$$, null, null, "RBG M+","RGB TOG", "RGB M-", null, "Reboot"]
+    - [null, null, $$material:volume_down$$, $$material:volume_mute$$, $$material:volume_up$$, null, null, "RGB Hue+", "RGB Sat+", "RGB Bri+", null, null]
+    - [null, null, $$mdi:skip-previous$$, $$mdi:play-pause$$, $$mdi:skip-next$$, null, null, "RGB Hue-", "RGB Sat-", "RGB Bri-", null, null]
+    - null
+    - null
+    - {type: held}
+    - {type: held}
+    - null
+    - null
+combos:
+  # - {p: [3, 4],   k: "`", l: ["DEF"]}
+  # - {p: [15, 16], k: '"', l: ["DEF"]}
+  - {p: [19, 20], k: ":", l: ["DEF"]}
+  # - {p: [19, 20], k: ":", l: ["NUM"]}
+  # - {p: [27, 28], k: "'", l: ["DEF"]}
+  # - {p: [31, 32], k: "0", l: ["NUM"]}
+draw_config:
+  glyph_tap_size: 18
