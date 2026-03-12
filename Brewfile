@@ -2,6 +2,7 @@ tap "nikitabobko/tap"
 tap "felixkratz/formulae"
 tap "oven-sh/bun"
 tap "anomalyco/tap"
+tap "derailed/k9s"
 
 # command-line tools
 brew "fzf"
@@ -47,6 +48,7 @@ brew "fisher"
 brew "docker"
 brew "colima"
 brew "kubectl"
+brew "derailed/k9s/k9s"
 
 # fonts
 cask "font-jetbrains-mono"

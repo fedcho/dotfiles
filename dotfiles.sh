@@ -18,6 +18,9 @@ DOTFILES=(
 	".local/bin/tmux-chop"
 	".local/bin/tmux-auto"
 	".tmux/themes"
+	".config/k9s/aliases.yaml"
+	".config/k9s/config.yaml"
+	".config/k9s/skins"
 )
 
 show_help() {

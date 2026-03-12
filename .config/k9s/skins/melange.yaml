@@ -1,0 +1,37 @@
+# Melange skin for K9s
+k9s:
+  body:
+    fgColor: "#ece1d7"  # Silk (Foreground)
+    bgColor: "#292522"  # Coal (Background)
+    logoColor: "#8b7449" # Bronze
+  info:
+    fgColor: "#ebc06d"  # Wheat
+    sectionColor: "#ece1d7"
+  frame:
+    border:
+      fgColor: "#403a36" # Pebble
+      focusColor: "#8b7449"
+    menu:
+      fgColor: "#ece1d7"
+      keyColor: "#ebc06d"
+      numKeyColor: "#ebc06d"
+    status:
+      newColor: "#78997a" # Sage (Success)
+      modifyColor: "#ebc06d" # Wheat (Warning)
+      addColor: "#b380b0" # Orchid
+      errorColor: "#bf616a" # Red
+      pendingColor: "#d3815b" # Carrot
+    title:
+      fgColor: "#ebc06d"
+      bgColor: "#292522"
+      highlightColor: "#8b7449"
+  views:
+    table:
+      fgColor: "#ece1d7"
+      bgColor: "#292522"
+      cursorFgColor: "#292522"
+      cursorBgColor: "#8b7449"
+      markColor: "#ebc06d"
+      header:
+        fgColor: "#ebc06d"
+        bgColor: "#292522"

@@ -10,8 +10,11 @@ abbr -a gvr 'open $(git config --get remote.origin.url | sed -E "s/git@(.*):(.*)
 
 # Environment
 set -gx EDITOR nvim
+set -gx K9S_CONFIG_DIR "$HOME/.config/k9s"
+
+# Bun Setup
 set -x BUN_INSTALL "$HOME/.bun"
-set -x PATH $BUN_INSTALL/bin $PATH
+fish_add_path "$BUN_INSTALL/bin"
 
 # Options
 set fish_cursor_insert block 
