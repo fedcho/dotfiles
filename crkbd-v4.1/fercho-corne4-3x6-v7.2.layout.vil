@@ -27,7 +27,7 @@
       [-1, -1, -1, "KC_TRNS", "KC_TRNS", "KC_TRNS", -1],
       ["KC_TRNS", "KC_0", "KC_9", "KC_8", "KC_7", "KC_6", "KC_NO"],
       ["LSFT(KC_QUOTE)", "LSFT(KC_SCOLON)", "KC_RIGHT", "KC_UP", "KC_DOWN", "KC_LEFT", "KC_NO"],
-      ["KC_TRNS", "LSFT(KC_SLASH)", "LSFT(KC_DOT)", "LSFT(KC_COMMA)", "KC_NO", "KC_NO", -1],
+      ["KC_TRNS", "LSFT(KC_SLASH)", "LSFT(KC_DOT)", "LSFT(KC_COMMA)", "KC_ENTER", "KC_NO", -1],
       [-1, -1, -1, "KC_TRNS", "KC_TRNS", "LT4(KC_BSPACE)", -1]
     ],
     [
@@ -42,7 +42,7 @@
       ],
       ["KC_TRNS", "LSFT(KC_1)", "KC_EQUAL", "LSFT(KC_9)", "LSFT(KC_0)", "LSFT(KC_4)", "KC_TRNS"],
       ["KC_TRNS", "LSFT(KC_COMMA)", "LSFT(KC_BSLASH)", "KC_MINUS", "LSFT(KC_DOT)", "KC_BSLASH", -1],
-      [-1, -1, -1, "KC_TRNS", "KC_TRNS", "LT3(KC_ESCAPE)", -1],
+      [-1, -1, -1, "KC_TRNS", "KC_TRNS", "KC_TRNS", -1],
       [
         "KC_TRNS",
         "LSFT(KC_EQUAL)",
@@ -215,13 +215,13 @@
   ],
   "key_override": [
     {
-      "trigger": "KC_NO",
-      "replacement": "KC_NO",
-      "layers": 65535,
-      "trigger_mods": 0,
+      "trigger": "LSFT(KC_SCOLON)",
+      "replacement": "KC_QUOTE",
+      "layers": 2,
+      "trigger_mods": 2,
       "negative_mod_mask": 0,
       "suppressed_mods": 0,
-      "options": 7
+      "options": 135
     },
     {
       "trigger": "KC_NO",
