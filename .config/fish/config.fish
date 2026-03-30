@@ -7,6 +7,7 @@ abbr -a dark "osascript -e 'tell application \"System Events\" to tell appearanc
 abbr -a glo "git log --oneline -n20"
 abbr -a gpf "git push --force-with-lease"
 abbr -a gvr 'open $(git config --get remote.origin.url | sed -E "s/git@(.*):(.*)\.git/https:\/\/\1\/\2/")'
+abbr -a gvp 'open $(git config --get remote.origin.url | sed -E "s/git@(.*):(.*)\.git/https:\/\/\1\/\2/")/pull-requests/'
 abbr -a gvb 'open $(git config --get remote.origin.url | sed -E "s/git@(.*):(.*)\.git/https:\/\/\1\/\2/")/branch/$(git branch --show-current)'
 
 # Environment
