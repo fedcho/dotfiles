@@ -108,7 +108,7 @@ return {
 
         -- Keep an eye on https://github.com/pmizio/typescript-tools.nvim
         -- as a pontential replacement for this.
-       ts_ls = {
+        ts_ls = {
           capabilities = {
             textDocument = {
               formatting = {
@@ -116,6 +116,10 @@ return {
                 documentFormatting = false,
               },
             },
+          },
+          diagnostics = {
+            -- This prevents the LSP from sending the "unused" diagnostic codes
+            ignoredCodes = { 6133, 6138 },
           },
         },
 
@@ -131,7 +135,7 @@ return {
 
         tailwindcss = {},
         clojure_lsp = {},
-        oxlint = {},
+        -- oxlint = {},
       }
 
       -- Servers installation
@@ -139,10 +143,11 @@ return {
       vim.list_extend(ensure_installed, {
         "lua_ls",
         "stylua",
+        "prettierd",
         "eslint_d",
         "shfmt",
         "sqruff",
-        "oxfmt",
+        -- "oxfmt",
       })
 
       require("mason-tool-installer").setup({ ensure_installed = ensure_installed })

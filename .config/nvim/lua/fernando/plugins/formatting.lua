@@ -1,16 +1,27 @@
----@param bufnr integer
----@param ... string
----@return string
-local function first(bufnr, ...)
+---@param bufnr integer The buffer handle
+---@param formatters string[] A list (array) of formatter names to check
+---@return string|nil The first available formatter, or the first in the list as fallback
+local function first(bufnr, formatters)
   local conform = require("conform")
-  for i = 1, select("#", ...) do
-    local formatter = select(i, ...)
+  for _, formatter in ipairs(formatters) do
     if conform.get_formatter_info(formatter, bufnr).available then
       return formatter
     end
   end
-  return select(1, ...)
+  return formatters[1]
 end
+
+local function injected(formatters)
+  return function(bufnr)
+    if formatters.stop_after_first == true then
+      return { first(bufnr, formatters), "injected" }
+    else
+      return { table.unpack(formatters), "injected" }
+    end
+  end
+end
+
+local default = { "prettierd", "prettier", "oxfmt", stop_after_first = true }
 
 return {
   "stevearc/conform.nvim",
@@ -36,12 +47,10 @@ return {
       --
       -- You can use 'stop_after_first' to run the first available formatter from the list
       -- javascript = { "prettierd", "prettier", stop_after_first = true },
-      javascript = { "oxfmt" },
-      javascriptreact = { "oxfmt" },
-      typescript = function(bufnr)
-        return { first(bufnr, "prettierd", "prettier", "oxfmt"), "injected" }
-      end,
-      typescriptreact = { "oxfmt" },
+      javascript = default,
+      javascriptreact = default,
+      typescript = injected(default),
+      typescriptreact = default,
       json = { "oxfmt" },
       jsonc = { "oxfmt" },
       vue = { "oxfmt" },
