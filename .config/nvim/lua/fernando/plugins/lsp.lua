@@ -143,7 +143,6 @@ return {
         "eslint_d",
         "shfmt",
         "sqruff",
-        "markdownlint",
         -- "oxfmt",
       })
 
