@@ -117,10 +117,6 @@ return {
               },
             },
           },
-          diagnostics = {
-            -- This prevents the LSP from sending the "unused" diagnostic codes
-            ignoredCodes = { 6133, 6138 },
-          },
         },
 
         jsonls = {},
@@ -147,6 +143,7 @@ return {
         "eslint_d",
         "shfmt",
         "sqruff",
+        "markdownlint",
         -- "oxfmt",
       })
 
