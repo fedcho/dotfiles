@@ -19,3 +19,4 @@
 !.oxlint*
 !.gitignore
 !.dockerignore
+!.kbds
