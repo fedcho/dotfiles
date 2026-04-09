@@ -198,9 +198,9 @@
 		["KC_NO", "KC_NO", "KC_NO", "KC_NO", 230]
 	],
 	"combo": [
-		["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"],
-		["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"],
-		["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"],
+		["KC_D", "KC_F", "KC_NO", "KC_NO", "KC_QUOTE"],
+		["KC_E", "KC_R", "KC_NO", "KC_NO", "LSFT(KC_QUOTE)"],
+		["KC_C", "KC_V", "KC_NO", "KC_NO", "KC_GRAVE"],
 		["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"],
 		["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"],
 		["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"],
