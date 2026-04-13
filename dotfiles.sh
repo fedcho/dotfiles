@@ -5,10 +5,8 @@ verbose=false
 DOTFILES=(
 	".gitconfig"
 	".rgignore"
-	".tool-versions"
 	".tmux.conf"
 	".wezterm.lua"
-	".asdfrc"
 	".config/nvim"
 	".config/aerospace"
 	".config/fish/config.fish"

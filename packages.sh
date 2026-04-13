@@ -49,7 +49,7 @@ brew install elixir
 brew install oven-sh/bun/bun
 
 # package managers
-brew install asdf
+brew install fnm
 brew install fisher
 
 # containers

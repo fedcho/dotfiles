@@ -21,13 +21,6 @@ fish_add_path "$BUN_INSTALL/bin"
 # Options
 set fish_cursor_insert block 
 
-# Plugins
-if test -f  ~/.asdf/asdf.fish
-  source ~/.asdf/asdf.fish
-else if test -f /opt/homebrew/opt/asdf/libexec/asdf.fish
- source /opt/homebrew/opt/asdf/libexec/asdf.fish
-end
-
 fzf --fish | source
 zoxide init fish | source
-
+fnm env --use-on-cd --shell fish | source
