@@ -55,48 +55,10 @@ cmd_apply() {
 }
 
 cmd_install() {
-	if ! command -v brew >/dev/null 2>&1; then
-		echo "Installing Homebrew..."
-		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-		eval "$(/opt/homebrew/bin/brew shellenv)"
-	fi
-
-	echo "Installing brew packages..."
-	brew bundle install
-
-	if command -v fish >/dev/null 2>&1; then
-		echo "Configuring fish shell..."
-		echo $(which fish) | sudo tee -a /etc/shells
-		chsh -s $(which fish)
-
-		fish -c "
-		set -Ux HOMEBREW_NO_ENV_HINTS 1
-		eval "$(/opt/homebrew/bin/brew shellenv fish)"
-		fisher install pure-fish/pure
-		"
-	else
-		echo "fish shell not found."
-	fi
-
-	if ! command -v uv >/dev/null 2>&1; then
-		echo "Installing uv (python)"
-		curl -LsSf https://astral.sh/uv/install.sh | sh
-		export PATH="$HOME/.local/bin:$PATH"
-		hash -r
-
-		uv generate-shell-completion fish >"$HOME/.config/fish/completions/uv.fish"
-	fi
-
-	echo "Installing uv packages..."
-	uv tool install --python 3.13 posting # https://github.com/darrenburns/posting
-
-	echo "Installing asdf packages..."
-	asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-	asdf install nodejs
-
-	# scripts
+	./packages.sh
+	./fish.sh
 	./github.sh
-	./docker-compose.sh
+	./docker.sh
 	./macos.sh
 
 	echo "Done!"
