@@ -24,6 +24,7 @@ return {
       "javascript",
       "typescript",
       "tsx",
+      "yaml",
     }
 
     require("nvim-treesitter").install(filetypes)
