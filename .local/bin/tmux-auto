@@ -17,9 +17,8 @@ if ! tmux has-session -t "$session_name" 2>/dev/null; then
   tmux send-keys -t "$session_name:editor" "nvim" c-M
 
   tmux neww -t "$session_name" -c "$dir_name" -n terminal
-  tmux neww -t "$session_name" -c "$dir_name" -n server
   tmux neww -t "$session_name" -c "$dir_name" -n ai-chat
-  tmux neww -t "$session_name" -c "$dir_name" -n database
+  tmux neww -t "$session_name" -c "$dir_name" -n extras
 fi
 
 if [[ -n "$TMUX" ]]; then
