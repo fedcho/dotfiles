@@ -33,6 +33,8 @@ brew install yazi
 brew install btop
 brew install serie
 brew install anomalyco/tap/opencode
+brew install modem-dev/tap/hunk
+brew install fastfetch
 
 ### Notes
 # `serie`: git-commit graph. could be useful
@@ -70,3 +72,4 @@ brew install --cask google-chrome
 brew install --cask homerow
 brew install --cask bruno
 brew install --cask nikitabobko/tap/aerospace
+brew install --cask keycastr   
