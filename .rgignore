@@ -3,6 +3,7 @@
 !.vitepress/
 !.github/
 !.storybook/
+!.tmux/
 !.editorconfig
 !.eslintrc*
 !.prettierrc*

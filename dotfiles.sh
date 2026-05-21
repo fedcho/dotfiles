@@ -15,6 +15,7 @@ DOTFILES=(
 	".config/opencode/opencode.json"
 	".local/bin/tmux-chop"
 	".local/bin/tmux-auto"
+	".local/bin/tmux-session-picker"
 	".tmux/themes"
 	".config/k9s/aliases.yaml"
 	".config/k9s/config.yaml"

@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+current_session=$(tmux display-message -p '#S')
+previous_session=$(tmux display-message -p -F "#{client_last_session}")
+sessions=$(tmux list-sessions -F '#S')
+
+display_list=$(echo "$sessions" | sort)
+
+if [[ -n "$previous_session" && "$previous_session" != "$current_session" ]]; then
+    display_list=$(echo "$display_list" | grep -v "^$previous_session$")
+else
+    previous_session=""
+fi
+
+# Prepare display lines with highlighting for current session
+TAB=$'\t'
+lines=""
+
+while IFS= read -r s; do
+    [[ -z "$s" ]] && continue
+
+    if [[ "$s" == "$current_session" ]]; then
+        # Highlight current session
+        lines+="\033[38;5;208m◉ $s\033[0m${TAB}$s"$'\n'
+    else
+        # Regular session
+        lines+="  $s${TAB}$s"$'\n'
+    fi
+done <<<"$display_list"
+
+if [[ -n "$previous_session" ]]; then
+    s="$previous_session"
+    lines="\033[2m←\033[0m $s${TAB}$s"$'\n'${lines:-}
+fi
+
+# Show in fzf
+selected=$(echo -e "$lines" | sed '/^$/d' |
+    fzf --ansi --no-sort --layout=reverse --prompt=" session> " \
+        --delimiter='\t' --with-nth=1 |
+    cut -f2)
+
+# Switch to selected session if made
+if [[ -n "$selected" ]]; then
+    if [[ -n "$TMUX" ]]; then
+        tmux switch-client -t "$selected"
+    else
+        tmux attach-session -t "$selected"
+    fi
+fi
+
