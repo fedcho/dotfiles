@@ -19,6 +19,9 @@ if ! tmux has-session -t "$session_name" 2>/dev/null; then
   tmux neww -t "$session_name" -c "$dir_name" -n terminal
   tmux neww -t "$session_name" -c "$dir_name" -n ai-chat
   tmux neww -t "$session_name" -c "$dir_name" -n extras
+
+  tmux send-keys -t "$session_name:terminal" "fastfetch" c-M
+  tmux send-keys -t "$session_name:ai-chat" "opencode" c-M
 fi
 
 if [[ -n "$TMUX" ]]; then
