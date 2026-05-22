@@ -5,6 +5,7 @@ abbr -a doco 'docker compose'
 abbr -a chop 'tmux-chop'
 abbr -a dark "osascript -e 'tell application \"System Events\" to tell appearance preferences to set dark mode to not dark mode'"
 abbr -a glo "git log --oneline -n20"
+abbr -a gls 'git log --oneline --color=always | fzf --ansi --no-sort --preview "git show --color=always {1}" --bind "enter:execute(echo {1} | pbcopy)+abort"'
 abbr -a gpf "git push --force-with-lease"
 abbr -a gvr 'open $(git config --get remote.origin.url | sed -E "s/git@(.*):(.*)\.git/https:\/\/\1\/\2/")'
 abbr -a gvp 'open $(git config --get remote.origin.url | sed -E "s/git@(.*):(.*)\.git/https:\/\/\1\/\2/")/pull-requests/'
