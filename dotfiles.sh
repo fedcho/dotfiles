@@ -11,6 +11,7 @@ DOTFILES=(
 	".config/aerospace"
 	".config/fish/config.fish"
 	".config/fish/functions/fish_user_key_bindings.fish"
+	".config/fish/functions/loadenv.fish"
 	".config/wezterm"
 	".config/opencode/opencode.json"
 	".local/bin/tmux-chop"
