@@ -17,6 +17,7 @@ DOTFILES=(
 	".config/opencode/tui.json"
 	".config/opencode/skills"
 	".config/opencode/agents"
+	".config/opencode/commands"
 	".local/bin/tmux-chop"
 	".local/bin/tmux-auto"
 	".local/bin/tmux-session-picker"

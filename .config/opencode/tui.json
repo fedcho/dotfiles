@@ -13,5 +13,12 @@
     "messages_previous": "ctrl+p",
     "input_delete": "delete,shift+delete",
     "input_delete_to_line_end": "none"
+  },
+  "attention": {
+    "enabled": true,
+    "notifications": true,
+    "sound": true,
+    "volume": 0.4,
+    "sound_pack": "opencode.default"
   }
 }
