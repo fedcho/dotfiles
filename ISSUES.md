@@ -1,10 +1,8 @@
 # Issues
 
-Things that bother me and/or need improvement:
+Things that need to be fixed or improved:
 
-- [ ] prettier icons missed in neovim 
+- [x] noevim: prettier icons missed. 
+- [ ] corne: two dedicated ALT for aerospace.
+      Idea: create single right-handed desktop cluster. This will place all of aerospace keybindings in one split side
 
-
-# Ideas
-
-- Aerospace: put all desktops to the right side of the keyboard. That way we only need a single ALT

@@ -61,7 +61,7 @@ brew install kubectl
 brew install derailed/k9s/k9s
 
 # fonts
-brew install --cask font-jetbrains-mono
+brew install --cask font-symbols-only-nerd-font	
 
 # apps
 brew install --cask wezterm
