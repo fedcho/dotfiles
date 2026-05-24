@@ -16,6 +16,9 @@ return {
         cterm_color = "227",
         name = "Env",
       },
+      [".rgignore"] ={
+        icon = ""
+      }
     },
   },
 }
