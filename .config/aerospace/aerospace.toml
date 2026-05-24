@@ -111,34 +111,25 @@ alt-shift-k = 'move up'
 alt-shift-l = 'move right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-alt-w = 'workspace W'
-alt-a = 'workspace A'
-alt-s = 'workspace S'
-alt-d = 'workspace D'
-alt-f = 'workspace F'
-alt-g = 'workspace G'
-
+alt-y = 'workspace Y'
 alt-u = 'workspace U'
 alt-i = 'workspace I'
 alt-o = 'workspace O'
 alt-p = 'workspace P'
+
+alt-m = 'workspace M'
 
 cmd-h = [] # Disable "hide application"
 cmd-alt-h = [] # Disable "hide others"
 cmd-m = [] # Disable "minimize"
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-alt-shift-w = ['move-node-to-workspace W', 'workspace W']
-alt-shift-a = ['move-node-to-workspace A', 'workspace A']
-alt-shift-s = ['move-node-to-workspace S', 'workspace S']
-alt-shift-d = ['move-node-to-workspace D', 'workspace D']
-alt-shift-f = ['move-node-to-workspace F', 'workspace F']
-alt-shift-g = ['move-node-to-workspace G', 'workspace G']
-
+alt-shift-y = ['move-node-to-workspace Y', 'workspace Y']
 alt-shift-u = ['move-node-to-workspace U', 'workspace U']
 alt-shift-i = ['move-node-to-workspace I', 'workspace I']
 alt-shift-o = ['move-node-to-workspace O', 'workspace O']
 alt-shift-p = ['move-node-to-workspace P', 'workspace P']
+alt-shift-m = ['move-node-to-workspace M', 'workspace M']
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
@@ -146,15 +137,11 @@ alt-tab = 'workspace-back-and-forth'
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
-alt-shift-semicolon = 'mode service'
+alt-semicolon = 'mode service'
 
 [workspace-to-monitor-force-assignment]
-W = ['dell .*\(1\)', 'secondary']
-A = ['built-in','secondary'] 
-S = ['built-in','secondary']
-D = ['built-in','secondary'] 
-F = ['built-in','secondary']
-G = ['built-in','secondary']
+Y = ['dell .*\(1\)', 'secondary']
+M = ['built-in','secondary'] 
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -183,12 +170,8 @@ if.app-id = 'com.apple.FaceTime'
 run = 'layout floating'
 
 [[on-window-detected]]
-if.app-id = 'today.vial'
-run = 'move-node-to-workspace W'
-  
-[[on-window-detected]]
-if.app-id = 'com.nordvpn.NordVPN'
-run = 'move-node-to-workspace W'
+if.app-name-regex-substring = 'Mail|Notes|Reminders|Calendar|Bear|Photos'
+run = 'move-node-to-workspace Y'
 
 [[on-window-detected]]
 if.app-id = 'com.google.Chrome'
@@ -199,7 +182,7 @@ if.app-id = 'com.tinyspeck.slackmacgap'
 run = 'move-node-to-workspace I'
 
 [[on-window-detected]]
-if.app-id = 'com.usebruno.app'
+if.app-name-regex-substring = 'Finder|Safari|Bruno|Preview|NordVPN|Vial'
 run = 'move-node-to-workspace O'
 
 [[on-window-detected]]
@@ -208,16 +191,5 @@ run = 'move-node-to-workspace P'
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Messages|WhatsApp|FaceTime'
-run = 'move-node-to-workspace A'
+run = 'move-node-to-workspace M'
 
-[[on-window-detected]]
-if.app-name-regex-substring = 'Slack'
-run = 'move-node-to-workspace S'
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'Finder|Photos'
-run = 'move-node-to-workspace D'
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'Mail|Notes|Reminders|Calendar|Bear|Safari'
-run = 'move-node-to-workspace F'
