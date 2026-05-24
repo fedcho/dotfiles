@@ -5,6 +5,7 @@ local config = wezterm.config_builder()
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
 config.window_background_opacity = 0.95
+config.send_composed_key_when_left_alt_is_pressed = true
 
 -- Get the hostname to conditionally apply configs
 local hostname = ""
