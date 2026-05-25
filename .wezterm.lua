@@ -60,6 +60,7 @@ config.keys = {
 	{ key = "q", mods = "CMD", action = wezterm.action.QuitApplication },
 	{ key = "w", mods = "CMD", action = wezterm.action.CloseCurrentTab({ confirm = true }) },
 	{ key = "r", mods = "CMD", action = wezterm.action.ReloadConfiguration },
+	{ key = 'n', mods = 'CMD', action = wezterm.action.SpawnWindow }
 }
 
 return config
