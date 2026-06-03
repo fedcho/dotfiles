@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Palette Preview</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f5f5f7;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            max-width: 1000px;
+            width: 100%;
+        }
+        h1 {
+            color: #292522;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 20px;
+        }
+        .swatch {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            height: 160px;
+            transition: transform 0.2s ease;
+        }
+        .swatch:hover {
+            transform: translateY(-4px);
+        }
+        .color-block {
+            flex-grow: 1;
+        }
+        .color-info {
+            background: #ffffff;
+            padding: 12px;
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+        /* Utility classes for text color inside swatches if needed, 
+           but using a clean white bottom bar for universal readability */
+        .color-info span {
+            color: #403a36;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Color Palette Preview</h1>
+    <div class="grid">
+        <div class="swatch"><div class="color-block" style="background-color: #ece1d7;"></div><div class="color-info"><span>#ece1d7</span></div></div>
+        <div class="swatch"><div class="color-block" style="background-color: #292522;"></div><div class="color-info"><span>#292522</span></div></div>
+        <div class="swatch"><div class="color-block" style="background-color: #403a36;"></div><div class="color-info"><span>#403a36</span></div></div>
+        <div class="swatch"><div class="color-block" style="background-color: #c1a78e;"></div><div class="color-info"><span>#c1a78e</span></div></div>
+        <div class="swatch"><div class="color-block" style="background-color: #867462;"></div><div class="color-info"><span>#867462</span></div></div>
+        <div class="swatch"><div class="color-block" style="background-color: #ebc06d;"></div><div class="color-info"><span>#ebc06d</span></div></div>
+        
+        <div class="swatch"><div class="color-block" style="background-color: #e49b5d;"></div><div class="color-info"><span>#e49b5d</span></div></div>
+        <div class="swatch"><div class="color-block" style="background-color: #8b7449;"></div><div class="color-info"><span>#8b7449</span></div></div>
+        <div class="swatch"><div class="color-block" style="background-color: #85b695;"></div><div class="color-info"><span>#85b695</span></div></div>
+        <div class="swatch"><div class="color-block" style="background-color: #78997a;"></div><div class="color-info"><span>#78997a</span></div></div>
+        <div class="swatch"><div class="color-block" style="background-color: #89b3b6;"></div><div class="color-info"><span>#89b3b6</span></div></div>
+        <div class="swatch"><div class="color-block" style="background-color: #7b9695;"></div><div class="color-info"><span>#7b9695</span></div></div>
+        
+        <div class="swatch"><div class="color-block" style="background-color: #a3a9ce;"></div><div class="color-info"><span>#a3a9ce</span></div></div>
+        <div class="swatch"><div class="color-block" style="background-color: #7f91b2;"></div><div class="color-info"><span>#7f91b2</span></div></div>
+        <div class="swatch"><div class="color-block" style="background-color: #cf9bc2;"></div><div class="color-info"><span>#cf9bc2</span></div></div>
+        <div class="swatch"><div class="color-block" style="background-color: #b380b0;"></div><div class="color-info"><span>#b380b0</span></div></div>
+        <div class="swatch"><div class="color-block" style="background-color: #d47766;"></div><div class="color-info"><span>#d47766</span></div></div>
+        <div class="swatch"><div class="color-block" style="background-color: #bd8183;"></div><div class="color-info"><span>#bd8183</span></div></div>
+    </div>
+</div>
+
+</body>
+</html>

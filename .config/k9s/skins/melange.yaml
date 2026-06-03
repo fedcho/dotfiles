@@ -1,37 +1,143 @@
 # Melange skin for K9s
+# Based on the Melange color scheme by savq
+# https://github.com/savq/melange-nvim
+
+# Palette
+foreground: &foreground "#ece1d7"  # Silk
+background: &background "#292522"  # Coal
+selection: &selection "#403a36"   # Pebble
+comment: &comment "#c1a78e"       # Whisper
+ui: &ui "#867462"                  # Muted warm gray
+yellow: &yellow "#ebc06d"         # Wheat
+yellow_muted: &yellow_muted "#e49b5d"
+yellow_dark: &yellow_dark "#8b7449" # Bronze
+green: &green "#85b695"
+green_muted: &green_muted "#78997a"
+cyan: &cyan "#89b3b6"
+cyan_muted: &cyan_muted "#7b9695"
+blue: &blue "#a3a9ce"
+blue_muted: &blue_muted "#7f91b2"
+magenta: &magenta "#cf9bc2"
+magenta_muted: &magenta_muted "#b380b0"
+red: &red "#d47766"
+red_muted: &red_muted "#bd8183"
+
 k9s:
   body:
-    fgColor: "#ece1d7"  # Silk (Foreground)
-    bgColor: "#292522"  # Coal (Background)
-    logoColor: "#8b7449" # Bronze
+    fgColor: *foreground
+    bgColor: *background
+    logoColor: *yellow_dark
+    logoColorMsg: *comment
+    logoColorInfo: *cyan
+    logoColorWarn: *yellow_muted
+    logoColorError: *red_muted
+  prompt:
+    fgColor: *foreground
+    bgColor: *background
+    suggestColor: *ui
+    border:
+      command: *yellow
+      default: *comment
   info:
-    fgColor: "#ebc06d"  # Wheat
-    sectionColor: "#ece1d7"
+    fgColor: *yellow
+    sectionColor: *foreground
+    cpuColor: *green
+    memColor: *blue
+    k9sRevColor: *yellow_muted
+  help:
+    fgColor: *foreground
+    bgColor: *background
+    keyColor: *yellow
+    numKeyColor: *blue
+    sectionColor: *green
+  dialog:
+    fgColor: *foreground
+    bgColor: *background
+    buttonFgColor: *background
+    buttonBgColor: *yellow
+    buttonFocusFgColor: *background
+    buttonFocusBgColor: *blue
+    labelFgColor: *yellow
+    fieldFgColor: *foreground
   frame:
     border:
-      fgColor: "#403a36" # Pebble
-      focusColor: "#8b7449"
+      fgColor: *selection
+      focusColor: *yellow_dark
     menu:
-      fgColor: "#ece1d7"
-      keyColor: "#ebc06d"
-      numKeyColor: "#ebc06d"
+      fgColor: *foreground
+      fgStyle: normal
+      keyColor: *yellow
+      numKeyColor: *yellow
+    crumbs:
+      fgColor: *background
+      bgColor: *ui
+      activeColor: *yellow
     status:
-      newColor: "#78997a" # Sage (Success)
-      modifyColor: "#ebc06d" # Wheat (Warning)
-      addColor: "#b380b0" # Orchid
-      errorColor: "#bf616a" # Red
-      pendingColor: "#d3815b" # Carrot
+      newColor: *cyan
+      modifyColor: *blue
+      addColor: *green
+      errorColor: *red
+      pendingColor: *yellow_muted
+      highlightColor: *yellow
+      killColor: *magenta_muted
+      completedColor: *comment
     title:
-      fgColor: "#ebc06d"
-      bgColor: "#292522"
-      highlightColor: "#8b7449"
+      fgColor: *yellow
+      bgColor: *background
+      highlightColor: *yellow_dark
+      counterColor: *magenta
+      filterColor: *yellow_muted
   views:
     table:
-      fgColor: "#ece1d7"
-      bgColor: "#292522"
-      cursorFgColor: "#292522"
-      cursorBgColor: "#8b7449"
-      markColor: "#ebc06d"
+      fgColor: *foreground
+      bgColor: *background
+      cursorFgColor: *background
+      cursorBgColor: *yellow_dark
+      markColor: *yellow
       header:
-        fgColor: "#ebc06d"
-        bgColor: "#292522"
+        fgColor: *yellow
+        bgColor: *background
+        sorterColor: *green
+        selectedSortColumnColor: *blue
+    xray:
+      fgColor: *foreground
+      bgColor: *background
+      cursorColor: *selection
+      cursorTextColor: *background
+      graphicColor: *yellow_dark
+      showIcons: false
+    charts:
+      bgColor: default
+      dialBgColor: *selection
+      chartBgColor: *selection
+      defaultDialColors:
+        - *magenta
+        - *red
+      defaultChartColors:
+        - *magenta
+        - *red
+      resourceColors:
+        CPU:
+          - *cyan
+          - *blue
+        MEM:
+          - *yellow
+          - *green
+      focusFgColor: *foreground
+      focusBgColor: *yellow_dark
+    yaml:
+      keyColor: *yellow
+      colonColor: *yellow_dark
+      valueColor: *foreground
+    picker:
+      mainColor: *foreground
+      focusColor: *yellow_dark
+      shortcutColor: *yellow
+    logs:
+      fgColor: *foreground
+      bgColor: *background
+      indicator:
+        fgColor: *foreground
+        bgColor: default
+        toggleOnColor: *green
+        toggleOffColor: *cyan_muted
