@@ -79,7 +79,10 @@ set("n", "<leader>kd", vim.cmd.DBUIToggle, { desc = "DBU[I]" })
 set("n", "<leader>kx", "<cmd>source %<CR>", { desc = "Source file" })
 set("n", "<leader>ks", "<cmd>mksession! session.vim<CR>", { desc = "[S]ave session" })
 
+-- Text edit hacks
+set("i", "<C-l>", "<CR><ESC>O", { desc = "Begin two new lines after the cursor and insert at first" })
+
 -- Disable annoying legacy navigation
-vim.keymap.set("n", "Q", "<nop>")
+set("n", "Q", "<nop>")
 
 -- vim: ts=2 sts=2 sw=2 et
