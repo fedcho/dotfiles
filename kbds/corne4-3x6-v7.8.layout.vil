@@ -17,8 +17,8 @@
 			["KC_TRNS", "OSM(MOD_LSFT)", "OSM(MOD_LALT)", "OSM(MOD_LCTL)", "OSM(MOD_LGUI)", "KC_NO", "KC_MPLY"],
 			["KC_TRNS", "KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO", -1],
 			[-1, -1, -1, "KC_TRNS", "KC_TRNS", "KC_TRNS", -1],
-			["KC_TRNS", "KC_0", "KC_9", "KC_8", "KC_7", "KC_6", "KC_MNXT"],
-			["LSFT(KC_QUOTE)", "LSFT(KC_SCOLON)", "KC_RIGHT", "KC_UP", "KC_DOWN", "KC_LEFT", "KC_MPRV"],
+			["KC_TRNS", "KC_0", "KC_9", "KC_8", "KC_7", "KC_6", "KC_MPRV"],
+			["LSFT(KC_QUOTE)", "LSFT(KC_SCOLON)", "KC_RIGHT", "KC_UP", "KC_DOWN", "KC_LEFT", "KC_MNXT"],
 			["KC_TRNS", "LSFT(KC_SLASH)", "LSFT(KC_DOT)", "LSFT(KC_COMMA)", "KC_NO", "KC_NO", -1],
 			[-1, -1, -1, "KC_TRNS", "KC_TRNS", "LT4(KC_BSPACE)", -1]
 		],
