@@ -66,9 +66,9 @@ set("n", "<leader>gq", function()
 end, { desc = "Git [Q]uit" })
 
 -- Browse/View
-set("n", "<leader>vf", vim.cmd.GBrowse, { desc = "[V]iew [F]ile" })
-set("n", "<leader>vr", "<cmd>!gh repo view -w<CR><ESC>", { desc = "[V]iew [R]epo", silent = true })
-set("n", "<leader>vp", "<cmd>!gh pr view -w<CR>", { desc = "[V]iew [P]ull request", silent = true })
+set("n", "<leader>bf", vim.cmd.GBrowse, { desc = "[B]rowse [F]ile" })
+set("n", "<leader>br", "<cmd>!gh repo view -w<CR><ESC>", { desc = "[B]rowse [R]epo", silent = true })
+set("n", "<leader>bp", "<cmd>!gh pr view -w<CR>", { desc = "[B]rowse [P]ull request", silent = true })
 
 -- Komands keymaps
 set("n", "<leader>kq", "<cmd>noautocmd wqa!<CR>", { desc = "[Q]uit" })
