@@ -61,8 +61,8 @@ k9s:
     fieldFgColor: *foreground
   frame:
     border:
-      fgColor: *selection
-      focusColor: *yellow_dark
+      fgColor: *ui
+      focusColor: *yellow
     menu:
       fgColor: *foreground
       fgStyle: normal
@@ -83,7 +83,7 @@ k9s:
       completedColor: *comment
     title:
       fgColor: *yellow
-      bgColor: *background
+      bgColor: *selection
       highlightColor: *yellow_dark
       counterColor: *magenta
       filterColor: *yellow_muted
@@ -92,7 +92,7 @@ k9s:
       fgColor: *foreground
       bgColor: *background
       cursorFgColor: *background
-      cursorBgColor: *yellow_dark
+      cursorBgColor: *yellow_muted
       markColor: *yellow
       header:
         fgColor: *yellow
@@ -102,8 +102,8 @@ k9s:
     xray:
       fgColor: *foreground
       bgColor: *background
-      cursorColor: *selection
-      cursorTextColor: *background
+      cursorColor: *ui
+      cursorTextColor: *foreground
       graphicColor: *yellow_dark
       showIcons: false
     charts:
@@ -111,11 +111,11 @@ k9s:
       dialBgColor: *selection
       chartBgColor: *selection
       defaultDialColors:
-        - *magenta
-        - *red
+        - *blue
+        - *yellow_muted
       defaultChartColors:
-        - *magenta
-        - *red
+        - *blue
+        - *yellow_muted
       resourceColors:
         CPU:
           - *cyan
@@ -124,7 +124,7 @@ k9s:
           - *yellow
           - *green
       focusFgColor: *foreground
-      focusBgColor: *yellow_dark
+      focusBgColor: *blue_muted
     yaml:
       keyColor: *yellow
       colonColor: *yellow_dark
@@ -138,6 +138,6 @@ k9s:
       bgColor: *background
       indicator:
         fgColor: *foreground
-        bgColor: default
+        bgColor: *selection
         toggleOnColor: *green
         toggleOffColor: *cyan_muted

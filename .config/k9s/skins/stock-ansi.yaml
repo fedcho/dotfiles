@@ -1,0 +1,89 @@
+# -----------------------------------------------------------------------------
+# Stock ANSI skin
+# -----------------------------------------------------------------------------
+
+k9s:
+  body:
+    fgColor: blue
+    bgColor: default
+    logoColor: yellow
+  prompt:
+    fgColor: cyan
+    bgColor: black
+    suggestColor: blue
+  info:
+    fgColor: yellow
+    sectionColor: white
+  dialog:
+    fgColor: blue
+    bgColor: black
+    buttonFgColor: black
+    buttonBgColor: blue
+    buttonFocusFgColor: white
+    buttonFocusBgColor: magenta
+    labelFgColor: magenta
+    fieldFgColor: blue
+  frame:
+    border:
+      fgColor: blue
+      focusColor: cyan
+    menu:
+      fgColor: white
+      fgStyle: dim
+      keyColor: blue
+      numKeyColor: magenta
+    crumbs:
+      fgColor: black
+      bgColor: blue
+      activeColor: yellow
+    status:
+      newColor: cyan
+      modifyColor: green
+      addColor: white
+      errorColor: red
+      pendingColor: yellow
+      highlightColor: cyan
+      killColor: magenta
+      completedColor: white
+    title:
+      fgColor: cyan
+      highlightColor: magenta
+      counterColor: white
+      filterColor: blue
+  views:
+    charts:
+      bgColor: black
+      defaultDialColors:
+        - green
+        - red
+      defaultChartColors:
+        - green
+        - red
+    table:
+      fgColor: blue
+      bgColor: black
+      cursorFgColor: black
+      cursorBgColor: cyan
+      markColor: yellow
+      header:
+        fgColor: white
+        bgColor: black
+        sorterColor: yellow
+    xray:
+      fgColor: blue
+      bgColor: black
+      cursorColor: cyan
+      graphicColor: yellow
+      showIcons: false
+    yaml:
+      keyColor: blue
+      colonColor: white
+      valueColor: white
+    logs:
+      fgColor: white
+      bgColor: black
+      indicator:
+        fgColor: blue
+        bgColor: black
+        toggleOnColor: white
+        toggleOffColor: blue
