@@ -1,39 +1,91 @@
----@param bufnr integer The buffer handle
----@param formatters string[] A list (array) of formatter names to check
----@return string|nil The first available formatter, or the first in the list as fallback
-local function pick_first_available(bufnr, formatters)
-  local conform = require("conform")
-  for _, formatter in ipairs(formatters) do
-    if conform.get_formatter_info(formatter, bufnr).available then
-      return formatter
-    end
-  end
-  return formatters[1]
-end
+local unpack = table.unpack or unpack
 
-local function resolve(formatters, extras)
+local function pick_first_available(formatters)
   return function(bufnr)
-      return { pick_first_available(bufnr, formatters), table.unpack(extras) }
+    local conform = require("conform")
+    for _, formatter in ipairs(formatters) do
+      if conform.get_formatter_info(formatter, bufnr).available then
+        return formatter
+      end
+    end
+    return formatters[1]
   end
 end
 
-local prettier_with_fallbacks = { "prettierd", "prettier", "oxfmt", stop_after_first = true }
-
-local oxfmt_configs = {
-  ".oxfmtrc.json",
-  ".oxfmtrc.jsonc",
-  "oxfmt.config.ts",
-  "oxfmt.config.mts",
+local prettier_configs = {
+  ".prettierrc",
+  ".prettierrc.json",
+  ".prettierrc.yml",
+  ".prettierrc.yaml",
+  ".prettierrc.json5",
+  ".prettierrc.js",
+  ".prettierrc.cjs",
+  ".prettierrc.mjs",
+  ".prettierrc.toml",
+  "prettier.config.js",
+  "prettier.config.cjs",
+  "prettier.config.mjs",
 }
 
-local function prefer_oxfmt(fallback)
-  return function(bufnr)
-    if vim.fs.root(bufnr, oxfmt_configs) then
-      return { "oxfmt", "injected" }
+local configs = {
+  oxfmt = {
+    ".oxfmtrc.json",
+    ".oxfmtrc.jsonc",
+    "oxfmt.config.ts",
+    "oxfmt.config.mts",
+  },
+  prettier = prettier_configs,
+  prettierd = prettier_configs,
+}
+
+local function normalize(v)
+  if v == nil then return {} end
+  return type(v) == "string" and { v } or v
+end
+
+local function resolve(options)
+  local prefer_configured = options.prefer_configured
+  local always = normalize(options.always)
+  local formatters = {}
+
+  for _, fmt in ipairs(options) do
+    if type(fmt) == "table" then
+      for _, v in ipairs(fmt) do
+        table.insert(formatters, v)
+      end
+    else
+      table.insert(formatters, fmt)
     end
-    return fallback(bufnr)
+  end
+
+  return function(bufnr)
+    local list = {}
+    local seen = {}
+
+    if prefer_configured then
+      for _, fmt in ipairs(formatters) do
+        local cfg = configs[fmt]
+        if cfg and vim.fs.root(bufnr, cfg) then
+          table.insert(list, fmt)
+          seen[fmt] = true
+          break
+        end
+      end
+    end
+
+    for _, fmt in ipairs(formatters) do
+      if not seen[fmt] then
+        table.insert(list, fmt)
+        seen[fmt] = true
+      end
+    end
+
+    local best = pick_first_available(list)(bufnr)
+    return { best, unpack(always) }
   end
 end
+
+local default_formatters = { "oxfmt", "prettierd", "prettier", stop_after_first = true }
 
 return {
   "stevearc/conform.nvim",
@@ -59,9 +111,10 @@ return {
       --
       -- You can use 'stop_after_first' to run the first available formatter from the list
       -- javascript = { "prettierd", "prettier", stop_after_first = true },
-      javascript = { "prettierd", "prettier", "oxfmt", stop_after_first = true },
-      javascriptreact = { "prettierd", "prettier", "oxfmt", stop_after_first = true },
-      typescript = prefer_oxfmt(resolve({ "prettierd", "prettier", "oxfmt" }, "injected")),
+      javascript = resolve({ default_formatters, prefer_configured = true, always = "injected" }),
+      javascriptreact = resolve({ default_formatters, prefer_configured = true, always = "injected" }),
+      typescript = resolve({ default_formatters, prefer_configured = true, always = "injected" }),
+      typescriptreact = resolve({ default_formatters, prefer_configured = true, always = "injected" }),
       json = { "oxfmt" },
       jsonc = { "oxfmt" },
       vue = { "oxfmt" },
