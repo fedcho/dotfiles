@@ -14,9 +14,10 @@ set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 -- Control the size of splits (height/width)
--- Disabled: conflicts with Aerospace
--- set("n", "<M-,>", "<c-w>5<")
--- set("n", "<M-.>", "<c-w>5>")
+set("n", "<C-w>,", "<C-w>10<", { desc = "Decrease width 10x" })
+set("n", "<C-w>.", "<C-w>10>", { desc = "Increase width 10x" })
+set("n", "<C-w>-", "<C-w>5-")
+set("n", "<C-w>+", "<C-w>5+")
 
 -- Keep the cursor in the middle when jumping vertically
 set("n", "<C-d>", "<C-d>zz")
@@ -29,9 +30,10 @@ set("v", "J", ":m '>+1<CR>gv=gv") -- Move selected lines down
 set("v", "K", ":m '<-2<CR>gv=gv") -- Move selected lines up
 
 -- Increase numbers
--- default <C-a> conflicts with Tmux prefix
-set({ "n", "v" }, "+", "<C-a>")
-set("x", "g+", "g<C-a>") -- V-Block multiline increment. :help v_g_CTRL-A
+set({ "n", "v" }, "<C-=>", "<C-a>")
+set({ "n", "v" }, "<C-_>", "<C-x>")
+set("x", "g<C-=>", "g<C-a>") -- V-Block multiline increment. :help v_g_CTRL-A
+set("x", "g<C-_>", "g<C-x>") -- V-Block multiline decrement. :help v_g_CTRL-X
 
 -- Alternative delete/replace: avoid registers
 set({ "n", "v" }, "<leader>ad", '"_d', { desc = "Delete to void" })
