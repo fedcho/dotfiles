@@ -6,6 +6,7 @@ config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
 config.window_background_opacity = 0.95
 config.send_composed_key_when_left_alt_is_pressed = true
+config.enable_kitty_keyboard = true
 
 -- Get the hostname to conditionally apply configs
 local hostname = ""
@@ -50,13 +51,13 @@ config.color_scheme = "melange"
 config.disable_default_key_bindings = true
 
 config.keys = {
-	{ key = "P", mods = "CTRL", action = wezterm.action.ActivateCommandPalette },
-	{ key = "L", mods = "CTRL", action = wezterm.action.ShowDebugOverlay },
-	{ key = "c", mods = "SUPER", action = wezterm.action.CopyTo("Clipboard") },
-	{ key = "v", mods = "SUPER", action = wezterm.action.PasteFrom("Clipboard") },
-	{ key = "-", mods = "CTRL", action = wezterm.action.DecreaseFontSize },
-	{ key = "=", mods = "CTRL", action = wezterm.action.IncreaseFontSize },
-	{ key = "0", mods = "CTRL", action = wezterm.action.ResetFontSize },
+	{ key = "p", mods = "CMD", action = wezterm.action.ActivateCommandPalette },
+	{ key = "l", mods = "CMD", action = wezterm.action.ShowDebugOverlay },
+	{ key = "c", mods = "CMD", action = wezterm.action.CopyTo("Clipboard") },
+	{ key = "v", mods = "CMD", action = wezterm.action.PasteFrom("Clipboard") },
+	{ key = "-", mods = "CMD", action = wezterm.action.DecreaseFontSize },
+	{ key = "=", mods = "CMD", action = wezterm.action.IncreaseFontSize },
+	{ key = "0", mods = "CMD", action = wezterm.action.ResetFontSize },
 	{ key = "q", mods = "CMD", action = wezterm.action.QuitApplication },
 	{ key = "w", mods = "CMD", action = wezterm.action.CloseCurrentTab({ confirm = true }) },
 	{ key = "r", mods = "CMD", action = wezterm.action.ReloadConfiguration },
