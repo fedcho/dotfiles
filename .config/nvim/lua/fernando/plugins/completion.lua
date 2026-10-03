@@ -50,6 +50,15 @@ return {
       -- See :h blink-cmp-config-keymap for defining your own keymap
       preset = "default",
 
+      ["<C-f>"] = {
+        function(cmp)
+          if cmp.is_documentation_visible() then return end
+          return cmp.select_and_accept()
+        end,
+        "scroll_documentation_down",
+        "fallback",
+      },
+
       -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
       --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
     },
@@ -68,7 +77,14 @@ return {
         auto_show_delay_ms = 500,
         window = { border = "rounded" },
       },
-      menu = { border = "rounded" },
+      menu = {
+        border = "rounded",
+        auto_show = false,
+      },
+      ghost_text = {
+        enabled = true,
+        show_with_menu = false,
+      },
     },
 
     sources = {
