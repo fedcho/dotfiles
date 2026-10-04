@@ -53,7 +53,7 @@
 			[-1, -1, -1, "KC_TRNS", "KC_TRNS", "KC_BSPACE", -1]
 		],
 		[
-			["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_TRNS"],
+			["KC_NO", "RGB_HUD", "RGB_HUI", "RGB_SAD", "RGB_SAI", "KC_NO", "KC_TRNS"],
 			["KC_NO", "KC_LSHIFT", "KC_LALT", "KC_LCTRL", "KC_LGUI", "KC_NO", "KC_NO"],
 			["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO", -1],
 			[-1, -1, -1, "KC_TRNS", "KC_TRNS", "KC_TRNS", -1],
