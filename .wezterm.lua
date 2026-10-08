@@ -57,6 +57,7 @@ config.keys = {
 	{ key = "v", mods = "CMD", action = wezterm.action.PasteFrom("Clipboard") },
 	{ key = "-", mods = "CMD", action = wezterm.action.DecreaseFontSize },
 	{ key = "=", mods = "CMD", action = wezterm.action.IncreaseFontSize },
+	{ key = "+", mods = "CMD", action = wezterm.action.IncreaseFontSize },
 	{ key = "0", mods = "CMD", action = wezterm.action.ResetFontSize },
 	{ key = "q", mods = "CMD", action = wezterm.action.QuitApplication },
 	{ key = "w", mods = "CMD", action = wezterm.action.CloseCurrentTab({ confirm = true }) },
