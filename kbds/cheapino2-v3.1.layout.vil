@@ -13,7 +13,7 @@
 			[-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 		],
 		[
-			["KC_6", "KC_7", "KC_8", "KC_9", "KC_0", "KC_TRNS", -1, -1, -1, -1, -1, -1],
+			["KC_6", "KC_7", "KC_8", "KC_9", "KC_0", "KC_BSPACE", -1, -1, -1, -1, -1, -1],
 			["KC_LEFT", "KC_DOWN", "KC_UP", "KC_RIGHT", "LSFT(KC_QUOTE)", "KC_TRNS", -1, -1, -1, -1, -1, -1],
 			["KC_GRAVE", "LSFT(KC_EQUAL)", "KC_MINUS", "KC_DOT", "KC_SCOLON", "KC_TRNS", -1, -1, -1, -1, -1, -1],
 			["KC_TRNS", -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
