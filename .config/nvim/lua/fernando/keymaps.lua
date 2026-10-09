@@ -81,6 +81,12 @@ set("n", "<leader>ku", vim.cmd.UndotreeToggle, { desc = "[U]ndo tree" })
 set("n", "<leader>kd", vim.cmd.DBUIToggle, { desc = "DBU[I]" })
 set("n", "<leader>kx", "<cmd>source %<CR>", { desc = "Source file" })
 set("n", "<leader>ks", "<cmd>mksession! session.vim<CR>", { desc = "[S]ave session" })
+set("n", "<leader>ky", function()
+  local text = vim.fn.expand("%:.") .. ":" .. vim.fn.line(".")
+  vim.fn.setreg("+", text)
+  vim.fn.setreg('"', text)
+  vim.notify('"' .. text .. '" ' .. "copied")
+end, { desc = "[Y]ank file position" })
 
 -- Text edit hacks
 set("i", "<C-l>", "<CR><ESC>O", { desc = "Begin two new lines after the cursor and insert at first" })

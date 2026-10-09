@@ -3,7 +3,7 @@
   "theme": "system",
   "keybinds": {
     "leader": "ctrl+space",
-    "app_exit": "ctrl+c",
+    "app_exit": "ctrl+q",
     "messages_half_page_down": "ctrl+d",
     "messages_half_page_up": "ctrl+u",
     "messages_first": "ctrl+g,home",
