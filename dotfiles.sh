@@ -25,6 +25,7 @@ DOTFILES=(
 	".config/k9s/aliases.yaml"
 	".config/k9s/config.yaml"
 	".config/k9s/skins"
+	".config/pgcli/config"
 )
 
 show_help() {
