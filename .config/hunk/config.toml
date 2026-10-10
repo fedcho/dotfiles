@@ -19,7 +19,7 @@ cursor_line = "row"
 
 [themes.melange]
 base = "gruvbox-dark-medium"
-label = "Melange"
+label = "melange"
 background = "#211E1B"
 panel = "#34302C"
 panelAlt = "#403A36"
