@@ -42,6 +42,13 @@ return {
         vim.treesitter.start(args.buf, "tsx")
       end,
     })
+
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = "sh",
+      callback = function(args)
+        vim.treesitter.start(args.buf, "bash")
+      end,
+    })
   end,
 }
 
