@@ -1,89 +1,132 @@
 # -----------------------------------------------------------------------------
-# Stock ANSI skin
+# Stock ANSI skin — terminal-following only
+# Only the 16 tcell palette colors + `default` respect wezterm/melange.toml:
+# black, maroon, green, olive, navy, purple, teal, silver,
+# gray, red, lime, yellow, blue, fuchsia, aqua, white.
+# Everything else (lightgray, steelblue, orange, ...) is fixed truecolor.
+# All bgColor use `default` (transparent) to preserve terminal background.
+# Exception: text on yellow surfaces uses *coal (terminal bg) — no ANSI
+# name reaches this dark; everything else stays terminal-following.
 # -----------------------------------------------------------------------------
+
+# Lone exception to the ANSI-only rule (see above).
+coal: &coal "#292522"  # terminal bg — text on yellow surfaces
 
 k9s:
   body:
-    fgColor: blue
+    fgColor: white
     bgColor: default
-    logoColor: yellow
+    logoColor: gray
+    logoColorMsg: silver
+    logoColorInfo: aqua
+    logoColorWarn: yellow
+    logoColorError: red
   prompt:
-    fgColor: cyan
+    fgColor: white
     bgColor: black
-    suggestColor: blue
+    suggestColor: gray
+    border:
+      command: yellow
+      default: yellow
   info:
-    fgColor: yellow
+    fgColor: silver
     sectionColor: white
+    cpuColor: lime
+    memColor: blue
+    k9sRevColor: yellow
+  help:
+    fgColor: white
+    bgColor: default
+    keyColor: yellow
+    numKeyColor: yellow
+    sectionColor: silver
   dialog:
-    fgColor: blue
-    bgColor: black
-    buttonFgColor: black
-    buttonBgColor: blue
-    buttonFocusFgColor: white
-    buttonFocusBgColor: magenta
-    labelFgColor: magenta
-    fieldFgColor: blue
+    fgColor: white
+    bgColor: default
+    buttonFgColor: *coal
+    buttonBgColor: silver
+    buttonFocusFgColor: *coal
+    buttonFocusBgColor: yellow
+    labelFgColor: silver
+    fieldFgColor: white
   frame:
     border:
-      fgColor: blue
-      focusColor: cyan
+      fgColor: gray
+      focusColor: yellow
     menu:
       fgColor: white
-      fgStyle: dim
-      keyColor: blue
-      numKeyColor: magenta
+      keyColor: yellow
+      numKeyColor: yellow
     crumbs:
-      fgColor: black
-      bgColor: blue
-      activeColor: yellow
+      fgColor: green
+      bgColor: default
+      activeColor: black
     status:
-      newColor: cyan
-      modifyColor: green
-      addColor: white
+      newColor: aqua
+      modifyColor: blue
+      addColor: lime
       errorColor: red
       pendingColor: yellow
-      highlightColor: cyan
-      killColor: magenta
-      completedColor: white
+      highlightColor: yellow
+      killColor: fuchsia
+      completedColor: gray
     title:
-      fgColor: cyan
-      highlightColor: magenta
-      counterColor: white
-      filterColor: blue
+      fgColor: white
+      bgColor: default
+      highlightColor: green
+      counterColor: fuchsia
+      filterColor: yellow
   views:
     charts:
-      bgColor: black
+      bgColor: default
+      dialBgColor: default
+      chartBgColor: default
       defaultDialColors:
-        - green
+        - blue
         - red
       defaultChartColors:
-        - green
+        - blue
         - red
+      resourceColors:
+        CPU:
+          - aqua
+          - blue
+        MEM:
+          - yellow
+          - lime
+      focusFgColor: *coal
+      focusBgColor: yellow
     table:
-      fgColor: blue
-      bgColor: black
-      cursorFgColor: black
-      cursorBgColor: cyan
+      fgColor: white
+      bgColor: default
+      cursorFgColor: *coal
+      cursorBgColor: yellow
       markColor: yellow
       header:
-        fgColor: white
-        bgColor: black
+        fgColor: silver
+        bgColor: default
         sorterColor: yellow
+        selectedSortColumnColor: yellow
     xray:
-      fgColor: blue
-      bgColor: black
-      cursorColor: cyan
+      fgColor: white
+      bgColor: default
+      cursorColor: yellow
+      cursorTextColor: *coal
       graphicColor: yellow
       showIcons: false
     yaml:
-      keyColor: blue
-      colonColor: white
+      keyColor: yellow
+      colonColor: silver
       valueColor: white
+    picker:
+      mainColor: white
+      focusColor: yellow
+      shortcutColor: yellow
     logs:
       fgColor: white
-      bgColor: black
+      bgColor: default
       indicator:
-        fgColor: blue
-        bgColor: black
-        toggleOnColor: white
-        toggleOffColor: blue
+        fgColor: white
+        bgColor: default
+        toggleOnColor: lime
+        toggleOffColor: gray
