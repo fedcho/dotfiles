@@ -2,24 +2,24 @@
 # Melange skin for k9s — fresh, minimal, functional
 # Hex values taken directly from .config/wezterm/colors/melange.toml
 # (foreground/background/selection + ansi + brights).
-# All bgColor use `default` (transparent) to preserve terminal background.
-# Palette roles: fg primary, secondary muted pair, one accent (yellow),
+# All bgColor use `default` (transparent) except prompt, which uses *bg.
+# Palette roles: fg primary, secondary muted pair, one accent,
 # semantic colors only where useful (ok/info/warn/error/kill/new).
 # -----------------------------------------------------------------------------
 
 # Palette (from melange.toml)
-foreground: &fg "#ECE1D7"    # white / bright15 — primary fg
+fg: &fg "#ECE1D7"               # white / bright15 — primary fg
+bg: &bg "#292522"               # terminal bg — solid surfaces + text on yellow
 secondary: &secondary "#C1A78E" # silver / ansi7 — secondary fg
-muted: &muted "#867462"        # gray / bright0 — muted/comment
-active: &active "#34302C"      # ansi black — same as stock-ansi `black` in this terminal
-coal: &coal "#292522"          # terminal bg — fg on yellow surfaces
-yellow: &yellow "#EBC06D"      # yellow / bright3 — accent, cursor, focus
-olive: &olive "#E49B5D"        # olive / ansi3 — pending/warn
-green: &green "#85B695"        # lime / bright1 — ok/success
-teal: &teal "#89B3B6"           # aqua / bright6 — new
-blue: &blue "#A3A9CE"          # blue / bright4 — info/modify
-red: &red "#D47766"            # red / bright1 — error
-magenta: &magenta "#CF9BC2"    # fuchsia / bright5 — kill/special
+muted: &muted "#867462"         # gray / bright0 — muted/comment
+surface: &surface "#34302C"     # raised surface — active crumb pill (ansi black)
+accent: &accent "#EBC06D"       # yellow / bright3 — accent, cursor, focus
+red: &red "#D47766"             # red / bright1 — error
+amber: &amber "#E49B5D"         # amber / ansi3 — pending/warn (renders orange, not olive)
+green: &green "#85B695"         # lime / bright1 — ok/success
+cyan: &cyan "#89B3B6"           # cyan / bright6 — new
+blue: &blue "#A3A9CE"           # blue / bright4 — info/modify
+magenta: &magenta "#CF9BC2"     # fuchsia / bright5 — kill/special
 
 k9s:
   body:
@@ -27,64 +27,64 @@ k9s:
     bgColor: default
     logoColor: *muted
     logoColorMsg: *secondary
-    logoColorInfo: *teal
-    logoColorWarn: *yellow
+    logoColorInfo: *cyan
+    logoColorWarn: *accent
     logoColorError: *red
   prompt:
     fgColor: *fg
-    bgColor: *coal
+    bgColor: *bg
     suggestColor: *muted
     border:
-      command: *yellow
-      default: *yellow
+      command: *accent
+      default: *accent
   info:
     fgColor: *secondary
     sectionColor: *fg
     cpuColor: *green
     memColor: *blue
-    k9sRevColor: *yellow
+    k9sRevColor: *accent
   help:
     fgColor: *fg
     bgColor: default
-    keyColor: *yellow
-    numKeyColor: *yellow
+    keyColor: *accent
+    numKeyColor: *accent
     sectionColor: *secondary
   dialog:
     fgColor: *fg
     bgColor: default
-    buttonFgColor: *coal
+    buttonFgColor: *bg
     buttonBgColor: *secondary
-    buttonFocusFgColor: *coal
-    buttonFocusBgColor: *yellow
+    buttonFocusFgColor: *bg
+    buttonFocusBgColor: *accent
     labelFgColor: *secondary
     fieldFgColor: *fg
   frame:
     border:
       fgColor: *muted
-      focusColor: *yellow
+      focusColor: *accent
     menu:
       fgColor: *fg
-      keyColor: *yellow
-      numKeyColor: *yellow
+      keyColor: *accent
+      numKeyColor: *accent
     crumbs:
       fgColor: *green
       bgColor: default
-      activeColor: *active
+      activeColor: *surface
     status:
-      newColor: *teal
+      newColor: *cyan
       modifyColor: *blue
       addColor: *green
       errorColor: *red
-      pendingColor: *olive
-      highlightColor: *yellow
+      pendingColor: *amber
+      highlightColor: *accent
       killColor: *magenta
       completedColor: *muted
     title:
       fgColor: *fg
       bgColor: default
-      highlightColor: *teal
+      highlightColor: *cyan
       counterColor: *magenta
-      filterColor: *yellow
+      filterColor: *accent
   views:
     charts:
       bgColor: default
@@ -98,39 +98,39 @@ k9s:
         - *red
       resourceColors:
         CPU:
-          - *teal
+          - *cyan
           - *blue
         MEM:
-          - *yellow
+          - *accent
           - *green
-      focusFgColor: *coal
-      focusBgColor: *yellow
+      focusFgColor: *bg
+      focusBgColor: *accent
     table:
       fgColor: *fg
       bgColor: default
-      cursorFgColor: *coal
-      cursorBgColor: *yellow
-      markColor: *yellow
+      cursorFgColor: *bg
+      cursorBgColor: *accent
+      markColor: *accent
       header:
         fgColor: *secondary
         bgColor: default
-        sorterColor: *yellow
-        selectedSortColumnColor: *yellow
+        sorterColor: *accent
+        selectedSortColumnColor: *accent
     xray:
       fgColor: *fg
       bgColor: default
-      cursorColor: *yellow
-      cursorTextColor: *coal
-      graphicColor: *yellow
+      cursorColor: *accent
+      cursorTextColor: *bg
+      graphicColor: *accent
       showIcons: false
     yaml:
-      keyColor: *yellow
+      keyColor: *accent
       colonColor: *secondary
       valueColor: *fg
     picker:
       mainColor: *fg
-      focusColor: *yellow
-      shortcutColor: *yellow
+      focusColor: *accent
+      shortcutColor: *accent
     logs:
       fgColor: *fg
       bgColor: default
