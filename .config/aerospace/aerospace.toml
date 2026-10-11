@@ -130,8 +130,8 @@ alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 alt-semicolon = 'mode service'
 
 [workspace-to-monitor-force-assignment]
-Y = ['dell .*\(1\)', 'secondary']
-M = ['built-in','secondary'] 
+Y = ['dell .*\(1\)', 'main']
+M = ['built-in', 'secondary'] 
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -165,30 +165,30 @@ alt-k = ['join-with up', 'mode main']
 alt-l = ['join-with right', 'mode main']
 
 [[on-window-detected]]
-if.app-id = 'com.apple.FaceTime'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'Mail|Notes|Reminders|Calendar|Bear|Photos|Spotify'
+if.app-name-regex-substring = 'Mail|Notes|Reminders|Calendar|Bear|Photos'
 run = 'move-node-to-workspace Y'
 
 [[on-window-detected]]
-if.app-id = 'com.google.Chrome'
+if.app-id = 'com.github.wez.wezterm'
 run = 'move-node-to-workspace U'
 
 [[on-window-detected]]
-if.app-id = 'com.tinyspeck.slackmacgap'
+if.app-id = 'com.google.Chrome'
 run = 'move-node-to-workspace I'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Finder|Safari|Bruno|Preview|NordVPN|Vial'
+if.app-name-regex-substring = 'Slack|Messages|WhatsApp'
 run = 'move-node-to-workspace O'
 
 [[on-window-detected]]
-if.app-id = 'com.github.wez.wezterm'
+if.app-name-regex-substring = 'Finder|Safari|Bruno|Preview|NordVPN|Vial'
 run = 'move-node-to-workspace P'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Messages|WhatsApp|FaceTime'
+if.app-id = 'com.spotify.client'
 run = 'move-node-to-workspace M'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.FaceTime'
+run = ['layout floating', 'move-node-to-workspace M']
 
