@@ -1,4 +1,4 @@
-# Melange dark theme for Slack (modern 4-color format)
+# Melange theme for Slack (modern 4-color format)
 # Apply: Slack > Preferences > Appearance > Custom theme > Import theme,
 # paste the string below, Apply. Set Color Mode: Dark (themes only recolor
 # the sidebar/top nav — the message pane follows light/dark mode).
@@ -14,3 +14,9 @@
 # 2. Selected items   (#403A36) — open channel pill, light text auto (a.sel)
 # 3. Presence         (#85B695) — online dot (b.green)
 # 4. Notifications    (#D47766) — mention/unread badge (b.red)
+
+# Changes
+green -> #A9C5AC
+brither -> #2FBA5C
+chroma -> #03c873
+

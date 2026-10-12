@@ -1,4 +1,4 @@
-theme = "kanagawa-dragon"
+theme = "github-dark-high-contrast"
 mode = "auto"
 vcs = "git"
 watch = false
