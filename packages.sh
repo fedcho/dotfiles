@@ -32,23 +32,12 @@ brew install pgcli
 brew install yazi
 brew install btop
 brew install serie
-brew install anomalyco/tap/opencode
-brew install modem-dev/tap/hunk
-brew install fastfetch
-
-### Notes
-# `serie`: git-commit graph. could be useful
-# `posting`: good candidate for http client adoption
-# `resterm`: for inspiration/reference since it uses a text-based request builder
-# `harlequin`: decent sql-client, not sure how to navigate it but worth trying
-# `phantom`: support git-worktres and tmux but windows/panes-based, not sessions
+brew install opencode
+brew install hunk
 
 # dev
 brew install stylua
 brew install tree-sitter-cli
-brew install erlang
-brew install elixir
-brew install oven-sh/bun/bun
 
 # package managers
 brew install fnm
@@ -70,6 +59,4 @@ brew install --cask raycast
 brew install --cask appcleaner
 brew install --cask google-chrome
 brew install --cask homerow
-brew install --cask bruno
 brew install --cask nikitabobko/tap/aerospace
-brew install --cask keycastr   
