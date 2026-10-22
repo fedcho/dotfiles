@@ -110,7 +110,6 @@ alt-k = 'focus up'
 alt-l = 'focus right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-alt-y = 'workspace Y'
 alt-u = 'workspace U'
 alt-i = 'workspace I'
 alt-o = 'workspace O'
@@ -128,9 +127,9 @@ alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-semicolon = 'mode service'
+alt-quote = 'mode service'
 
 [workspace-to-monitor-force-assignment]
-Y = ['dell .*\(1\)', 'main']
 M = ['built-in', 'secondary'] 
 
 # 'service' binding mode declaration.
@@ -145,7 +144,6 @@ backspace = ['close-all-windows-but-current', 'mode main']
 #s = ['layout sticky tiling', 'mode main']
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-y = ['move-node-to-workspace Y', 'workspace Y', 'mode main']
 u = ['move-node-to-workspace U', 'workspace U', 'mode main']
 i = ['move-node-to-workspace I', 'workspace I', 'mode main']
 o = ['move-node-to-workspace O', 'workspace O', 'mode main']
@@ -165,10 +163,6 @@ alt-k = ['join-with up', 'mode main']
 alt-l = ['join-with right', 'mode main']
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Mail|Notes|Reminders|Calendar|Bear|Photos'
-run = 'move-node-to-workspace Y'
-
-[[on-window-detected]]
 if.app-id = 'com.github.wez.wezterm'
 run = 'move-node-to-workspace U'
 
@@ -177,15 +171,15 @@ if.app-id = 'com.google.Chrome'
 run = 'move-node-to-workspace I'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Slack|Messages|WhatsApp'
-run = 'move-node-to-workspace O'
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'Finder|Safari|Bruno|Preview|NordVPN|Vial'
+if.app-name-regex-substring = 'Mail|Notes|Reminders|Calendar|Bear|Photos'
 run = 'move-node-to-workspace P'
 
 [[on-window-detected]]
-if.app-id = 'com.spotify.client'
+if.app-name-regex-substring = 'Finder|Safari|Preview|NordVPN|Vial'
+run = 'move-node-to-workspace P'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Messages|WhatsApp|Spotify|Slack'
 run = 'move-node-to-workspace M'
 
 [[on-window-detected]]
