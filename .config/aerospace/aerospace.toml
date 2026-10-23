@@ -171,15 +171,15 @@ if.app-id = 'com.google.Chrome'
 run = 'move-node-to-workspace I'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Bear|NordVPN|Vial|DigiDoc4'
+if.app-id = 'com.tinyspeck.slackmacgap'
 run = 'move-node-to-workspace O'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Calendar|Finder|Notes|Photos|Preview|Reminders|Safari'
+if.app-name-regex-substring = 'Preview|Safari|Bear|NordVPN|Vial'
 run = 'move-node-to-workspace P'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Mail|Messages|WhatsApp|Spotify|Slack'
+if.app-name-regex-substring = 'Mail|Messages|WhatsApp|Spotify|Reminders|Calendar'
 run = 'move-node-to-workspace M'
 
 [[on-window-detected]]
