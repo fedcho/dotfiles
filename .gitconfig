@@ -18,6 +18,7 @@
 	cm = checkout main
 	rc = rebase --continue
 	ca = commit --amend --no-edit
+	yb = !git branch --show-current | pbcopy
 [push]
 	autoSetupRemote = true
 [init]
