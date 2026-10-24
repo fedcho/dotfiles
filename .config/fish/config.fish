@@ -22,6 +22,8 @@ fish_add_path "$BUN_INSTALL/bin"
 # Options
 set fish_cursor_insert block 
 
-fzf --fish | source
-zoxide init fish | source
-fnm env --use-on-cd --shell fish | source
+if status is-interactive
+  fzf --fish | source
+  zoxide init fish | source
+  fnm env --use-on-cd --shell fish | source
+end
