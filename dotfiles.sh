@@ -21,6 +21,7 @@ DOTFILES=(
 	".config/opencode/themes"
 	".local/bin/tmux-auto"
 	".local/bin/tmux-session-picker"
+	".local/bin/tmux-url-picker"
 	".tmux/themes"
 	".config/k9s/aliases.yaml"
 	".config/k9s/config.yaml"

@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Fuzzy-pick URLs from the current tmux pane and open them in the default browser.
+# Meant to run inside `display-popup`, where the current pane is the pane
+# behind the popup.
+
+urls=$(
+  tmux capture-pane -J -p |
+    rg --no-config -oN \
+      -e '(https?|ftp|file)://[^\s"'"'"'<>]+' \
+      -e 'www\.[A-Za-z0-9.-]+\.[A-Za-z]{2,}(/[^\s"'"'"'<>]*)?' \
+      -e 'git@[^\s:]+:[^\s]+' |
+    sed -E 's|^www\.|https://www.|; s|^git@([^:]+):(.*)$|https://\1/\2|; s/[).,;:]+$//' |
+    sort -u
+) || true
+
+if [[ -z $urls ]]; then
+  tmux display-message "No URLs found in pane"
+  exit 0
+fi
+
+sel=$(fzf --tmux center,40%,50% --no-sort <<<"$urls")
+[[ -z $sel ]] && exit 0
+
+nohup open "$sel" >/dev/null 2>&1 &
+

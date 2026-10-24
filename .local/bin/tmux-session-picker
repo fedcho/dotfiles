@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
-sel=$(tmux list-sessions -F '#S' | fzf --no-sort)
-[ -n "$sel" ] && tmux switch-client -t "$sel"
+sel=$(tmux list-sessions -F '#S' | fzf --tmux center,35%,40% --no-sort)
+[[ -z $sel ]] && exit 0
+
+tmux switch-client -t "$sel"
 
