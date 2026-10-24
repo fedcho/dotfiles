@@ -14,7 +14,6 @@ DOTFILES=(
 	".config/fish/functions/loadenv.fish"
 	".config/wezterm"
 	".config/opencode/opencode.json"
-	".config/opencode/tui.json"
 	".config/opencode/skills"
 	".config/opencode/agents"
 	".config/opencode/commands"
