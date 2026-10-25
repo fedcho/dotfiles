@@ -2,7 +2,7 @@
 
 These are my personal dotfiles. The main things this project contains are:
 
-- .config/nvim: the configuration for NVIM 0.11.6, written in lua. Based on kickstart.nvim but changed by me to make it modular.
+- .config/nvim: the configuration for NVIM, written in lua. Based on kickstart.nvim but changed by me to make it modular.
 - .config/fish: my shell configuration.
 - .config/aerospace: my tiling window manager for macOS.
 - .local/bin: some bash scripts made by me.
@@ -19,4 +19,4 @@ There is also a set of bash scripts that automate the installation process on a 
 
 I use several packages managers including homebrew, asdf, uv, and bun.
 
-- crkbd-v4: contains the keyboard layout for my corne v4.1 mechanical keyboard.
+- kbds/: contains the keyboard layouts for mechanical keyboards. Currently only using a corne v4.1

@@ -31,7 +31,6 @@ brew install tmux
 brew install pgcli
 brew install yazi
 brew install btop
-brew install serie
 brew install opencode
 brew install hunk
 
