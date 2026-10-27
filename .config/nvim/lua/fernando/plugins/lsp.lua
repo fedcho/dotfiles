@@ -7,7 +7,7 @@ return {
       -- Mason must be loaded before its dependents so we need to set it up here.
       -- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
       { "mason-org/mason.nvim", opts = { ui = { border = "rounded" } } },
-      { "mason-org/mason-lspconfig.nvim", opts = {} },
+      { "mason-org/mason-lspconfig.nvim", opts = { automatic_enable = false } },
       "WhoIsSethDaniel/mason-tool-installer.nvim",
 
       -- Useful status updates for LSP.
@@ -92,6 +92,46 @@ return {
 
       --  See `:help lsp-config` for information about keys and how to configure
       local servers = {
+        -- Formats Lua code through StyLua's built-in LSP mode
+        stylua = {},
+
+        -- Special Lua Config, as recommended by neovim help docs
+        lua_ls = {
+          on_init = function(client)
+            -- Formatting is done by stylua, not by lua_ls
+            client.server_capabilities.documentFormattingProvider = false
+
+            if client.workspace_folders then
+              local path = client.workspace_folders[1].name
+              if
+                path ~= vim.fn.stdpath("config")
+                and (vim.uv.fs_stat(path .. "/.luarc.json") or vim.uv.fs_stat(path .. "/.luarc.jsonc"))
+              then
+                return
+              end
+            end
+
+            client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
+              runtime = {
+                version = "LuaJIT",
+                path = { "lua/?.lua", "lua/?/init.lua" },
+              },
+              workspace = {
+                checkThirdParty = false,
+                -- NOTE: this is a lot slower and will cause issues when working on your own configuration.
+                --  See https://github.com/neovim/nvim-lspconfig/issues/3189
+                library = vim.api.nvim_get_runtime_file("", true),
+              },
+            })
+          end,
+          settings = {
+            Lua = {
+              -- Formatting is done by stylua, not by lua_ls
+              format = { enable = false },
+            },
+          },
+        },
+
         bashls = {},
         cssls = {
           settings = {
@@ -108,6 +148,11 @@ return {
 
         -- Keep an eye on https://github.com/pmizio/typescript-tools.nvim
         -- as a pontential replacement for this.
+        --
+        -- NOTE: kickstart.nvim now recommends `tsc` (the TypeScript 7 native
+        -- LSP) instead. It requires a `tsc`/`tsgo` binary version 7+ on `$PATH`
+        -- or in `node_modules/.bin`, and does not attach otherwise. Switch to it
+        -- once your projects ship TypeScript 7: replace this entry with `tsc = {}`.
         ts_ls = {
           capabilities = {
             textDocument = {
@@ -137,8 +182,6 @@ return {
       -- Servers installation
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
-        "lua_ls",
-        "stylua",
         "prettierd",
         "eslint_d",
         "shfmt",
@@ -153,38 +196,6 @@ return {
         vim.lsp.config(name, server)
         vim.lsp.enable(name)
       end
-
-      -- Special Lua Config, as recommended by neovim help docs
-      vim.lsp.config("lua_ls", {
-        on_init = function(client)
-          if client.workspace_folders then
-            local path = client.workspace_folders[1].name
-            if
-              path ~= vim.fn.stdpath("config")
-              and (vim.uv.fs_stat(path .. "/.luarc.json") or vim.uv.fs_stat(path .. "/.luarc.jsonc"))
-            then
-              return
-            end
-          end
-
-          client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
-            runtime = {
-              version = "LuaJIT",
-              path = { "lua/?.lua", "lua/?/init.lua" },
-            },
-            workspace = {
-              checkThirdParty = false,
-              -- NOTE: this is a lot slower and will cause issues when working on your own configuration.
-              --  See https://github.com/neovim/nvim-lspconfig/issues/3189
-              library = vim.api.nvim_get_runtime_file("", true),
-            },
-          })
-        end,
-        settings = {
-          Lua = {},
-        },
-      })
-      vim.lsp.enable("lua_ls")
 
       -- Globally configure all LSP floating preview popups (like hover, signature help, etc)
       local open_floating_preview = vim.lsp.util.open_floating_preview

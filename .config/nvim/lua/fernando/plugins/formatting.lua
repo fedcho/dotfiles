@@ -105,7 +105,8 @@ return {
     notify_on_error = true,
     format_on_save = false,
     formatters_by_ft = {
-      lua = { "stylua" },
+      -- Lua formatting is handled by the `stylua` LSP (see lsp.lua), which runs
+      -- through conform's `lsp_format = "fallback"`; no external formatter needed.
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
       --

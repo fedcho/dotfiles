@@ -15,7 +15,6 @@ return {
       cmd = { "AdvancedGitSearch" },
     },
     { "nvim-telescope/telescope-ui-select.nvim" },
-    { "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
   },
   config = function()
     -- Shows all of the keymaps for the current Telescope picker:
@@ -119,8 +118,9 @@ return {
     end, { desc = "[S]earch [/] in Open Files" })
 
     -- Shortcut for searching your Neovim configuration files
+    -- `follow = true` resolves symlinks, needed since dotfiles are symlinked
     vim.keymap.set("n", "<leader>sn", function()
-      builtin.find_files({ cwd = vim.fn.stdpath("config") })
+      builtin.find_files({ cwd = vim.fn.stdpath("config"), follow = true })
     end, { desc = "[S]earch [N]eovim files" })
 
     -- Shortcut for searching packages files

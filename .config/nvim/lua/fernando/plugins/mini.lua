@@ -1,13 +1,38 @@
 return {
   "nvim-mini/mini.nvim",
   config = function()
+    -- If a nerd font is available, load the icons module for pretty icons in various plugins.
+    if vim.g.have_nerd_font then
+      require("mini.icons").setup({
+        extension = {
+          log = { glyph = "󰯂", hl = "MiniIconsGrey" },
+        },
+        file = {
+          [".env"] = { glyph = "󰒓", hl = "MiniIconsYellow" },
+          [".env.local"] = { glyph = "󰒓", hl = "MiniIconsYellow" },
+        },
+      })
+      -- Used for backwards compatibility with plugins that require `nvim-web-devicons` (e.g. telescope.nvim)
+      MiniIcons.mock_nvim_web_devicons()
+    end
+
     -- Better Around/Inside textobjects
     --
     -- Examples:
     --  - va)  - [V]isually select [A]round [)]paren
-    --  - yinq - [Y]ank [I]nside [N]ext [Q]uote
+    --  - yiNq - [Y]ank [I]nside [N]ext [Q]uote
     --  - ci'  - [C]hange [I]nside [']quote
-    require("mini.ai").setup({ n_lines = 500 })
+    require("mini.ai").setup({
+      -- NOTE: Avoid conflicts with the built-in incremental selection mappings
+      -- on Neovim>=0.12 (see `:help treesitter-incremental-selection`)
+      mappings = {
+        around_next = "aN",
+        inside_next = "iN",
+        around_last = "aL",
+        inside_last = "iL",
+      },
+      n_lines = 500,
+    })
 
     -- Add/delete/replace surroundings (brackets, quotes, etc.)
     --

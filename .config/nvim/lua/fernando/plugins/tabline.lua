@@ -1,6 +1,5 @@
 return {
   "nanozuki/tabby.nvim",
-  dependencies = "nvim-tree/nvim-web-devicons",
   config = function()
     local function get_hl(name, fallback)
       local hl = vim.api.nvim_get_hl(0, { name = name })

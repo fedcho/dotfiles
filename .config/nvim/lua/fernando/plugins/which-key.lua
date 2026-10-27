@@ -16,6 +16,7 @@ return {
       { "<leader>h", group = "[H]unk", mode = { "n", "v" } },
       { "<leader>a", group = "[A]lternatives", mode = { "n", "v", "x" } },
       { "<leader>j", group = "[J]umps" },
+      { "gr", group = "LSP Actions", mode = { "n" } },
     },
   },
 }
