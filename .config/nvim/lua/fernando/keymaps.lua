@@ -35,7 +35,7 @@ vim.keymap.set("x", "g<C-_>", "g<C-x>") -- V-Block multiline decrement. :help v_
 
 -- Alternative delete/replace: avoid registers
 vim.keymap.set({ "n", "v" }, "<leader>ad", '"_d', { desc = "Delete to void" })
-vim.keymap.set("x", "<leader>ap", [["_dP]], { desc = "Paste to void" }) -- Paste to void register
+vim.keymap.set("x", "<leader>ap", [["_dP]], { desc = "Paste to void" })
 
 -- Replace all of the word-under-cursor occurrences
 local cmd = [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]
@@ -70,7 +70,7 @@ vim.keymap.set("n", "<leader>kq", "<cmd>noautocmd wqa!<CR>", { desc = "[Q]uit" }
 vim.keymap.set("n", "<leader>kw", "<cmd>noautocmd w<CR>", { desc = "[W]rite to disk" })
 vim.keymap.set("n", "<leader>kr", "<cmd>edit! %<CR>", { desc = "[R]eload file" })
 vim.keymap.set("n", "<leader>ku", vim.cmd.UndotreeToggle, { desc = "[U]ndo tree" })
-vim.keymap.set("n", "<leader>kd", vim.cmd.DBUIToggle, { desc = "DBU[I]" })
+vim.keymap.set("n", "<leader>kd", vim.cmd.DBUIToggle, { desc = "[D]BUI toggle" })
 vim.keymap.set("n", "<leader>kx", "<cmd>source %<CR>", { desc = "Source file" })
 vim.keymap.set("v", "<leader>kx", ":lua<CR>", { desc = "Lua: Execute selected" })
 vim.keymap.set("n", "<leader>ks", "<cmd>mksession! session.vim<CR>", { desc = "[S]ave session" })
@@ -80,6 +80,7 @@ vim.keymap.set("n", "<leader>ky", function()
   vim.fn.setreg('"', text)
   vim.notify('"' .. text .. '" ' .. "copied")
 end, { desc = "[Y]ank file position" })
+vim.keymap.set("n", "<leader>kR", "<cmd>restart<CR>", { desc = "Restart" })
 
 -- Text edit hacks
 vim.keymap.set("i", "<C-l>", "<CR><ESC>O", { desc = "Begin two new lines after the cursor and insert at first" })

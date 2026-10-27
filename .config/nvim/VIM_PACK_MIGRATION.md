@@ -52,7 +52,6 @@ installs (if missing) and activates immediately, so "lazy loading" = calling
 | `plugins/oil.lua` | oil | startup (opts) | startup, keep `-` keymap |
 | `plugins/ufo.lua` | nvim-ufo + promise-async | startup | `add` both in order |
 | `plugins/dadbod.lua` | vim-dadbod, dadbod-ui, completion | `cmd` + `ft` | `cmd` user command + `FileType sql` wrapper |
-| `plugins/diffview.lua` | diffview | startup | startup |
 | `plugins/harpoon.lua` | harpoon + plenary | startup | startup, plenary `add` first |
 | `plugins/comment.lua` | mini.comment config / comment plugin | startup (with `enable_autocmd = false`) | startup |
 | `custom/`, `snippets/` | Lua modules | required by plugins | no change |

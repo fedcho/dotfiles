@@ -10,10 +10,6 @@ return {
         return vim.fn.executable("make") == 1
       end,
     },
-    {
-      "aaronhallaert/advanced-git-search.nvim",
-      cmd = { "AdvancedGitSearch" },
-    },
     { "nvim-telescope/telescope-ui-select.nvim" },
   },
   config = function()
@@ -27,7 +23,6 @@ return {
         ["ui-select"] = {
           require("telescope.themes").get_dropdown(),
         },
-        advanced_git_search = {},
       },
       pickers = {
         buffers = {
@@ -43,7 +38,6 @@ return {
     -- Enable Telescope extensions if they are installed
     pcall(require("telescope").load_extension, "fzf")
     pcall(require("telescope").load_extension, "ui-select")
-    pcall(require("telescope").load_extension, "advanced_git_search")
 
     -- See `:help telescope.builtin`
     local builtin = require("telescope.builtin")

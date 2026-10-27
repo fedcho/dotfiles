@@ -1,7 +1,6 @@
 return {
-  "tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
-  "tpope/vim-fugitive", -- Git integration
-  "tpope/vim-rhubarb", -- GH integration
-  "tpope/vim-surround",
+  "NMAC427/guess-indent.nvim",
   "mbbill/undotree",
+  "tpope/vim-fugitive",
+  "tpope/vim-rhubarb",
 }
