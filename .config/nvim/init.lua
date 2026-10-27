@@ -2,7 +2,7 @@
 vim.loader.enable()
 
 -- Experiemental ui2
-require('vim._core.ui2').enable()
+-- require('vim._core.ui2').enable()
 
 --- Set <space> as the leader key
 --- NOTE: Must happen before plugins are required
