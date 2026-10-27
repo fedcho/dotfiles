@@ -12,19 +12,19 @@ fi
 
 session_name=$(basename "$dir_name" | tr . _)
 
-if ! tmux has-session -t "$session_name" 2>/dev/null; then
-  tmux new -ds $session_name -c "$dir_name" -n editor
-  tmux send-keys -t "$session_name:editor" "nvim" c-M
+if ! tmux has-session -t "=$session_name" 2>/dev/null; then
+  tmux new -ds "$session_name" -c "$dir_name" -n editor
+  tmux send-keys -t "=$session_name:editor" "nvim" c-M
 
-  tmux neww -t "$session_name" -c "$dir_name" -n terminal
-  tmux neww -t "$session_name" -c "$dir_name" -n ai-chat
-  tmux neww -t "$session_name" -c "$dir_name" -n extras
+  tmux neww -t "=$session_name" -c "$dir_name" -n terminal
+  tmux neww -t "=$session_name" -c "$dir_name" -n ai-chat
+  tmux neww -t "=$session_name" -c "$dir_name" -n extras
 
-  tmux send-keys -t "$session_name:ai-chat" "opencode" c-M
+  tmux send-keys -t "=$session_name:ai-chat" "opencode" c-M
 fi
 
 if [[ -n "$TMUX" ]]; then
-  tmux switch-client -t "$session_name:0"
+  tmux switch-client -t "=$session_name:0"
 else
-  tmux attach-session -t "$session_name:0"
+  tmux attach-session -t "=$session_name:0"
 fi
