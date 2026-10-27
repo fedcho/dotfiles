@@ -17,21 +17,21 @@ return {
     --  - Insert mode: <c-/>
     --  - Normal mode: ?
     require("telescope").setup({
-      extensions = {
-        fzf = {},
-        wrap_results = true,
-        ["ui-select"] = {
-          require("telescope.themes").get_dropdown(),
+      defaults = {
+        mappings = {
+          i = { ["<c-enter>"] = "to_fuzzy_refine" },
         },
       },
       pickers = {
         buffers = {
           mappings = {
-            n = {
-              ["d"] = "delete_buffer",
-            },
+            n = { ["d"] = "delete_buffer" },
           },
         },
+      },
+      extensions = {
+        ["ui-select"] = { require("telescope.themes").get_dropdown() },
+        wrap_results = true,
       },
     })
 
