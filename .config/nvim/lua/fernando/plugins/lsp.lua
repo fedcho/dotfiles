@@ -145,25 +145,10 @@ return {
         },
 
         html = {},
-
-        -- Keep an eye on https://github.com/pmizio/typescript-tools.nvim
-        -- as a pontential replacement for this.
-        --
-        -- NOTE: kickstart.nvim now recommends `tsc` (the TypeScript 7 native
-        -- LSP) instead. It requires a `tsc`/`tsgo` binary version 7+ on `$PATH`
-        -- or in `node_modules/.bin`, and does not attach otherwise. Switch to it
-        -- once your projects ship TypeScript 7: replace this entry with `tsc = {}`.
-        ts_ls = {
-          capabilities = {
-            textDocument = {
-              formatting = {
-                dynamicRegistration = false,
-                documentFormatting = false,
-              },
-            },
-          },
-        },
-
+        -- Native TypeScript 7 language server. The `tsc` binary is installed by
+        -- the mason `tsc` package (npm `typescript`); a project-local
+        -- `node_modules/.bin/tsc` takes precedence when it is version 7+.
+        tsc = {},
         jsonls = {},
         yamlls = {},
 

@@ -147,7 +147,7 @@ git commit -m "nvim: kickstart sync [<Mon D, YYYY>]"
 ## Last sync
 
 - **Date:** Oct 25, 2026 (upstream cutoff: commits through 2026-10-03)
-- **Commit:** pending
+- **Commit:** 0159236
 
 ## Deliberate deviations from upstream (keep this log)
 
@@ -161,9 +161,13 @@ git commit -m "nvim: kickstart sync [<Mon D, YYYY>]"
   (notably when opening a file directly: `nvim foo.ts`). We therefore keep the
   explicit `get_lsp_capabilities()` call in `lsp.lua` until blink is loaded
   eagerly or servers are enabled lazily.
-- **TypeScript server:** kept `ts_ls` instead of upstream's `tsc`. The `tsc`
-  server requires a TypeScript 7+ (`tsc`/`tsgo`) binary with `--lsp`; without it
-  the server silently does not attach. Revisit when projects move to TS 7.
+- **TypeScript server:** adopted `tsc` (upstream), the native TypeScript 7
+  language server. It needs a `tsc` binary version 7+ with `--lsp`; without one
+  the server silently does not attach. The binary comes from mason's `tsc`
+  package (npm `typescript`), which is pulled in automatically because server
+  names feed `ensure_installed` — no manual install required. A project-local
+  `node_modules/.bin/tsc` (e.g. `bun add -d typescript`) takes precedence per
+  project root, and older local binaries are skipped in favour of the mason one.
 - **Formatting:** Lua formatting runs through the `stylua` LSP (upstream
   direction) while `conform.nvim` still owns JavaScript/TypeScript/JSON/YAML/
   Markdown (`oxfmt`, `prettierd`, `prettier`) and `shfmt`/`sqruff`. `lua_ls`
