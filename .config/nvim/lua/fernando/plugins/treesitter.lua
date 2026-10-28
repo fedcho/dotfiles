@@ -19,8 +19,6 @@ do
     "vim",
     "vimdoc",
     "sql",
-    "elixir",
-    "heex",
     "git_rebase",
     "css",
     "javascript",

@@ -139,7 +139,6 @@ local servers = {
     },
   },
 
-  bashls = {},
   cssls = {
     settings = {
       css = {
@@ -151,24 +150,23 @@ local servers = {
     },
   },
 
-  html = {},
   -- Native TypeScript 7 language server. The `tsc` binary is installed by
   -- the mason `tsc` package (npm `typescript`); a project-local
   -- `node_modules/.bin/tsc` takes precedence when it is version 7+.
   tsc = {},
-  jsonls = {},
-  yamlls = {},
-
-  elixirls = {
-    root_dir = require("lspconfig.util").root_pattern({ "mix.exs" }),
-  },
 
   -- XML Language server { "xml", "xsd", "xsl", "xslt", "svg" }
   lemminx = {},
 
-  tailwindcss = {},
-  clojure_lsp = {},
+  bashls = {},
+  html = {},
+  jsonls = {},
+  yamlls = {},
+
+  -- tailwindcss = {},
+  -- clojure_lsp = {},
   -- oxlint = {},
+  -- elixirls = { root_dir = require("lspconfig.util").root_pattern({ "mix.exs" }) },
 }
 
 -- Automatically install LSPs and related tools to stdpath for Neovim
