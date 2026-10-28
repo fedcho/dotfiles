@@ -1,9 +1,42 @@
 # vim.pack Migration Plan
 
-Status: **not started** — this config intentionally stays on lazy.nvim for now.
-This document is the plan to follow if/when migrating to the built-in
-`vim.pack` plugin manager, matching kickstart.nvim's April 2026 migration.
+Status: **done (Oct 28, 2026)** — migrated on branch `nvim-vim-pack-migration`,
+with the deviations below. This document is kept as the record of the plan
+plus the migration outcome.
 
+## Outcome (Oct 28, 2026)
+
+- **All plugins are eager** (per the plan decision): every plugin is
+  `vim.pack.add`ed at startup — no lazy-loading emulation was kept.
+- **`diffview.nvim` dropped** from the plan (it was not in the config anyway).
+- New `lua/fernando/pack.lua` holds `gh()`, `run_build()` and the
+  `PackChanged` build-step dispatch (fzf-native `make`, LuaSnip
+  `make install_jsregexp`, nvim-treesitter `TSUpdate`), matching upstream
+  kickstart, including the `ev.data.active`/`:packadd` nuance for treesitter.
+- `init.lua` requires plugin modules in dependency order via a list loop
+  (see the comment there); `plugins/init.lua` is now the guess-indent /
+  undotree / fugitive / rhubarb module.
+- Startup time: ~100 ms before (lazy.nvim) → ~107 ms after, well within the
+  10% acceptance target.
+- Lockfile correction vs the plan: the plan expected
+  `stdpath("data")/site/pack/core/pack.lock`, but Neovim 0.12.6 writes the
+  lock to `stdpath("config")/nvim-pack-lock.json` (config-local). It is
+  committed to the repo, which upstream's docs actually recommend for
+  reproducibility across machines.
+- Gotcha found and fixed during the migration, worth remembering for future
+  kickstart syncs: **`vim.pack.add` during `init.lua` activates plugins with
+  `:packadd!`, which does NOT source `plugin/` files** (they are sourced in
+  the normal plugin-loading phase right after init.lua). tabby.nvim's
+  `setup()` sets the 'tabline' option *synchronously* (its
+  `nvim_get_vvar('vim_did_enter')` check is a bug in Lua — the API returns the
+  number 0, which is truthy) to `%!TabbyRenderTabline()`, whose function lives
+  in tabby's `plugin/tabby.vim` → E117 on the first redraw. `tabline.lua`
+  therefore runs a non-bang `:packadd tabby.nvim` before `setup()`. Any plugin
+  whose `setup()` depends on its `plugin/` scripts during startup needs the
+  same treatment.
+
+This document is the plan that was followed to migrate to the built-in
+`vim.pack` plugin manager, matching kickstart.nvim's April 2026 migration.
 ## Why / when
 
 - **Why:** one less external dependency (no lazy.nvim bootstrap), follows

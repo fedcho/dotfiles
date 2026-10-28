@@ -6,16 +6,17 @@ modular configuration.
 
 Upstream kickstart ships a **single `init.lua`**. This config splits it into
 modules, so every sync is a translation task, not a merge. Do not copy files
-wholesale, and do not introduce lazy.nvim features kickstart no longer uses.
+wholesale, and do not introduce `vim.pack` features kickstart no longer uses.
 
 ## Prerequisites
 
 - `nvim --version` is >= 0.12 (kickstart HEAD targets 0.12+).
 - Network access to `api.github.com` and `raw.githubusercontent.com`.
 - Clean working tree: `git status` in the dotfiles repo.
-- Read `VIM_PACK_MIGRATION.md` first: upstream migrated to `vim.pack` in
-  April 2026. As long as this repo stays on lazy.nvim, upstream changes that
-  are purely about `vim.pack` must be **skipped, not ported**.
+- Plugin manager: this repo uses the built-in `vim.pack` (migrated Oct 2026,
+  see `VIM_PACK_MIGRATION.md`), same as upstream. Port `vim.pack.add` calls and
+  `PackChanged` hooks 1:1, adapted to the modular layout (`fernando.pack.lua`
+  holds the shared `gh`/`run_build` helpers and the build-step dispatch).
 
 ## Step 1 — Find the last sync
 
@@ -61,7 +62,7 @@ curl -s https://raw.githubusercontent.com/nvim-lua/kickstart.nvim/master/init.lu
 | --- | --- |
 | 1. options | `lua/fernando/options.lua` |
 | 2. keymaps & autocommands | `lua/fernando/keymaps.lua`, `lua/fernando/autocommands.lua` |
-| 3. plugin manager intro / build hooks | `init.lua` (lazy.nvim bootstrap) |
+| 3. plugin manager intro / build hooks | `lua/fernando/pack.lua` |
 | 4. UI / core UX (gitsigns, which-key, colorscheme, mini) | `lua/fernando/plugins/{gitsigns,which-key,colors,mini}.lua` |
 | 5. search & navigation (telescope) | `lua/fernando/plugins/telescope.lua` |
 | 6. LSP | `lua/fernando/plugins/lsp.lua` |
@@ -71,7 +72,7 @@ curl -s https://raw.githubusercontent.com/nvim-lua/kickstart.nvim/master/init.lu
 | 10. optional examples | not used (see `lua/fernando/plugins/` for equivalents) |
 
 Other local files with no direct kickstart counterpart: `dadbod.lua`,
-`diffview.lua`, `harpoon.lua`, `linting.lua`, `oil.lua`, `tabline.lua`,
+`harpoon.lua`, `linting.lua`, `oil.lua`, `tabline.lua`,
 `ufo.lua`, `comment.lua`, plus `custom/` and `snippets/`.
 
 ## Step 5 — Triage each upstream change
@@ -80,12 +81,7 @@ Port it when all of the following hold:
 
 1. The concept still exists in this config (e.g. we use telescope, so telescope
    changes apply; we do not use neo-tree, so its changes do not).
-2. It is not merely a consequence of `vim.pack` (e.g. `PackChanged` build
-   hooks, `vim.pack.add` calls, section restructure into numbered sections).
-3. It does not fight this config's deliberate deviations (see below).
-
-When a change is desirable but written against `vim.pack`, reimplement the
-*intent* in the lazy.nvim spec (see the deviations log).
+2. It does not fight this config's deliberate deviations (see below).
 
 ## Step 6 — Apply changes
 
@@ -96,15 +92,22 @@ When a change is desirable but written against `vim.pack`, reimplement the
 - If upstream adds a setting that is purely cosmetic/preference (icons, keymap
   choices), still port it but keep this config's naming conventions.
 
-## Step 7 — Refresh plugin lockfile
+## Step 7 — Refresh plugin state
+
+Plugins are installed at the correct revision automatically by `vim.pack.add`
+(using the machine-local lock at `stdpath("data")/site/pack/core/pack.lock`).
+After adding/removing plugin specs from the plugins modules, run:
 
 ```sh
-nvim --headless "+Lazy! clean" +qa
-nvim --headless "+Lazy! update" +qa
+nvim --headless -c 'qa!'   # installs/repairs anything missing; restart after
 ```
 
-`clean` removes plugins that are no longer referenced (e.g. after replacing
-`nvim-web-devicons` with `mini.icons`).
+Remove plugins that are no longer referenced in the config (restart first so
+they are not active, then):
+
+```sh
+nvim --headless -c 'lua vim.pack.del({ "plugin-name" }) vim.cmd("qa!")'
+```
 
 ## Step 8 — Verify
 
@@ -128,9 +131,10 @@ nvim --headless lua/fernando/options.lua -c 'lua vim.defer_fn(function()
 end, 3000)'
 ```
 
-Then manually check: `:checkhealth`, `:Lazy`, `<leader>sf`, `<leader>sn`,
-formatting with `<leader>kf` on a Lua and a TypeScript file, and gitsigns
-keymaps inside a modified file.
+Then manually check: `:checkhealth`,
+`:lua vim.pack.update(nil, { offline = true })` (plugin status),
+`<leader>sf`, `<leader>sn`, formatting with `<leader>kf` on a Lua and a
+TypeScript file, and gitsigns keymaps inside a modified file.
 
 ## Step 9 — Record the sync
 
@@ -146,21 +150,18 @@ git commit -m "nvim: kickstart sync [<Mon D, YYYY>]"
 
 ## Last sync
 
-- **Date:** Oct 25, 2026 (upstream cutoff: commits through 2026-10-03)
+- **Date:** Oct 28, 2026 (migrated to `vim.pack`, see `VIM_PACK_MIGRATION.md`)
 - **Commit:** 0159236
 
 ## Deliberate deviations from upstream (keep this log)
 
-- **Plugin manager:** lazy.nvim, not `vim.pack`. All `vim.pack`-specific changes
-  are skipped. See `VIM_PACK_MIGRATION.md`.
 - **blink.cmp capabilities:** upstream removed
   `require("blink.cmp").get_lsp_capabilities()` because blink registers
   capabilities through `vim.lsp.config('*')` in its `plugin/blink-cmp.lua`.
-  With lazy.nvim, blink is loaded on `VimEnter` while `lsp.lua` enables servers
-  during startup, so server configs can resolve before blink's defaults exist
-  (notably when opening a file directly: `nvim foo.ts`). We therefore keep the
-  explicit `get_lsp_capabilities()` call in `lsp.lua` until blink is loaded
-  eagerly or servers are enabled lazily.
+  We keep the explicit `get_lsp_capabilities()` call in `lsp.lua`. blink's
+  `plugin/` file is sourced after `init.lua`, so relying on the `config('*')`
+  merge would probably work, but keeping the explicit call is clearer and
+  stays correct even if module ordering changes.
 - **TypeScript server:** adopted `tsc` (upstream), the native TypeScript 7
   language server. It needs a `tsc` binary version 7+ with `--lsp`; without one
   the server silently does not attach. The binary comes from mason's `tsc`
