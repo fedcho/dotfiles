@@ -1,22 +1,23 @@
 # Agent Guidelines
 
-These are my personal dotfiles. The main things this project contains are:
+Personal dotfiles, symlinked into my home directory by `./dotfiles.sh apply`.
 
-- .config/nvim: the configuration for NVIM, written in lua. Based on kickstart.nvim but changed by me to make it modular.
-- .config/fish: my shell configuration.
-- .config/aerospace: my tiling window manager for macOS.
-- .local/bin: some bash scripts made by me.
-- .tmux.conf: my tmux configuration.
-- .wezterm.lua: my terminal configuration.
-- .gitconfig and other various configuration for my developer tools.
+## Invariants
 
-Many of these files are symlinked to my current system. For example, my .config/nvim setup is the real configuration files running nvim on my system.
+- The symlinked files ARE my live system (nvim, fish, aerospace, tmux, wezterm...).
+  Edits here take effect on the running setup.
+- The authoritative file lists live in the scripts; don't maintain copies here:
+  - files to link: `dotfiles.sh` (`DOTFILES` array)
+  - packages to install: `packages.sh`
+  - tool versions: `.config/mise/config.toml`
 
-There is also a set of bash scripts that automate the installation process on a new mac.
+## Setup flow
 
-- install.sh: this is the entry point. It installs homebrew and clone the repo. README.md contains the instructions on how to use it.
-- dotfiles.sh: is a cli with the main commands to install and apply the dotfiles.
+`install.sh` bootstraps a new machine: Homebrew → `dotfiles.sh install`
+(brew packages, fish, misc scripts) → `dotfiles.sh apply` (symlinks) →
+`mise install` (runtimes). Don't run these blindly on the current machine.
 
-I use several packages managers including homebrew, asdf, uv, and bun.
+## Verifying changes
 
-- kbds/: contains the keyboard layouts for mechanical keyboards. Currently only using a corne v4.1
+- fish configs: `fish -n <file>`
+- bash scripts: `bash -n <file>`

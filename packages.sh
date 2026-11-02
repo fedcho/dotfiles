@@ -39,8 +39,8 @@ brew install stylua
 brew install tree-sitter-cli
 
 # package managers
-brew install fnm
 brew install fisher
+brew install mise
 
 # containers
 brew install docker
@@ -59,3 +59,4 @@ brew install --cask appcleaner
 brew install --cask google-chrome
 brew install --cask homerow
 brew install --cask nikitabobko/tap/aerospace
+brew install --cask slack

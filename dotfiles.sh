@@ -27,7 +27,8 @@ DOTFILES=(
 	".config/k9s/config.yaml"
 	".config/k9s/skins"
 	".config/pgcli/config"
-	".config/hunk/config.toml"
+	".config/hunk/config.toml",
+	".config/mise/config.toml"
 )
 
 show_help() {

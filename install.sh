@@ -18,3 +18,6 @@ fi
 cd $HOME/projects/dotfiles
 ./dotfiles.sh -v install
 ./dotfiles.sh -v apply
+
+echo "Installing mise tools..."
+mise install -y

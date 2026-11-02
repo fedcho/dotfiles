@@ -1,3 +1,6 @@
+# Options
+set fish_cursor_insert block 
+
 # Abbreviations
 abbr -a lh "ls -A | egrep '^\.'"
 abbr -a kube 'kubectl'
@@ -15,15 +18,10 @@ set -gx EDITOR nvim
 set -gx K9S_CONFIG_DIR "$HOME/.config/k9s"
 set -gx FZF_DEFAULT_OPTS "--bind 'ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down'"
 
-# Bun Setup
-set -x BUN_INSTALL "$HOME/.bun"
-fish_add_path "$BUN_INSTALL/bin"
-
-# Options
-set fish_cursor_insert block 
+# Additional paths
+fish_add_path -m ~/.local/bin
 
 if status is-interactive
   fzf --fish | source
   zoxide init fish | source
-  fnm env --use-on-cd --shell fish | source
 end
