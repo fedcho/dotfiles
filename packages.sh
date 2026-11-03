@@ -9,8 +9,11 @@ fi
 
 echo "Installing brew packages..."
 
-# shell
+# shells
 brew install fish
+brew install pure
+brew install zsh-autosuggestions 
+brew install zsh-fast-syntax-highlighting
 
 # command-line tools
 brew install fzf
