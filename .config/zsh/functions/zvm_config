@@ -1,0 +1,3 @@
+zvm_config() {
+  ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BLOCK  
+}

@@ -11,9 +11,10 @@ echo "Installing brew packages..."
 
 # shells
 brew install fish
-brew install pure
+brew install powerlevel10k
 brew install zsh-autosuggestions 
 brew install zsh-fast-syntax-highlighting
+brew install zsh-vi-mode
 
 # command-line tools
 brew install fzf
