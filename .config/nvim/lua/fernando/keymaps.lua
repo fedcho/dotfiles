@@ -84,6 +84,9 @@ vim.keymap.set("n", "<leader>kR", "<cmd>restart<CR>", { desc = "Restart" })
 
 -- Text edit hacks
 vim.keymap.set("i", "<C-l>", "<CR><ESC>O", { desc = "Begin two new lines after the cursor and insert at first" })
+vim.keymap.set("n", "<leader>id", function ()
+  return vim.api.nvim_put({ vim.fn.strftime("%d.%m.%Y") }, "c", true, true)
+end, { desc = "Insert current [D]ate" } )
 
 -- Disable annoying legacy navigation
 vim.keymap.set("n", "Q", "<nop>")
