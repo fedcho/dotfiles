@@ -5,4 +5,8 @@ function fish_user_key_bindings
     bind -M insert \cp up-or-search
     bind -M insert \cn down-or-search
     bind -M insert \cf accept-autosuggestion
+
+    # C-d must never exit the shell (the preset delete-or-exit would on an empty prompt)
+    bind -M insert \cd delete-char
+    bind -M default \cd delete-char
 end
