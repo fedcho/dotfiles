@@ -4,7 +4,7 @@ set -euo pipefail
 SSH_DIR="$HOME/.ssh"
 SSH_IDENTITY="$SSH_DIR/id_ed25519"
 SSH_CONFIG="$SSH_DIR/config"
-SSH_HOST_BLOCK="Host *.github.com"
+SSH_HOST_BLOCK="Host github.com"
 
 # Make sure ~/.ssh exists with sane permissions
 mkdir -p "$SSH_DIR"
@@ -31,6 +31,7 @@ if [[ ! -f "$SSH_CONFIG" ]] || ! grep -q "^$SSH_HOST_BLOCK" "$SSH_CONFIG"; then
 		$SSH_HOST_BLOCK
 		  AddKeysToAgent yes
 		  IdentityFile $SSH_IDENTITY
+		  IdentitiesOnly yes
 	EOF
 fi
 
