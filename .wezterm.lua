@@ -7,23 +7,8 @@ config.window_decorations = "RESIZE"
 config.window_background_opacity = 0.95
 config.send_composed_key_when_left_alt_is_pressed = true
 config.enable_kitty_keyboard = true
-
--- Get the hostname to conditionally apply configs
-local hostname = ""
-local handle = io.popen("hostname")
-if handle then
-	hostname = handle:read("*a"):gsub("%s+", "")
-	handle:close()
-end
-
--- For my personal MacBook
-if false and string.find(hostname, ".local") then
-	config.font = wezterm.font("Monaspace Krypton")
-	config.font_rules = { {
-		italic = true,
-		font = wezterm.font("Monaspace Radon"),
-	} }
-end
+config.color_scheme = "melange"
+config.skip_close_confirmation_for_processes_named = {}
 
 config.font_size = 14
 config.line_height = 1.1
@@ -46,10 +31,7 @@ config.harfbuzz_features = {
 	"cv16", -- Q
 }
 
-config.color_scheme = "melange"
-
 config.disable_default_key_bindings = true
-
 config.keys = {
 	{ key = "p", mods = "CMD", action = wezterm.action.ActivateCommandPalette },
 	{ key = "l", mods = "CMD", action = wezterm.action.ShowDebugOverlay },
@@ -60,7 +42,7 @@ config.keys = {
 	{ key = "+", mods = "CMD", action = wezterm.action.IncreaseFontSize },
 	{ key = "0", mods = "CMD", action = wezterm.action.ResetFontSize },
 	{ key = "q", mods = "CMD", action = wezterm.action.QuitApplication },
-	{ key = "w", mods = "CMD", action = wezterm.action.CloseCurrentTab({ confirm = true }) },
+	{ key = "w", mods = "CMD", action = wezterm.action.CloseCurrentPane({ confirm = true }) },
 	{ key = "r", mods = "CMD", action = wezterm.action.ReloadConfiguration },
 	{ key = "n", mods = "CMD", action = wezterm.action.SpawnWindow },
 }
