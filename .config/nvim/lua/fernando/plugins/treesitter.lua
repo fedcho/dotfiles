@@ -27,6 +27,11 @@ do
     "yaml",
   }
 
+  -- Filetypes where the legacy regex syntax is better than treesitter.
+  local blocklist = {
+    "toml",
+  }
+
   require("nvim-treesitter").install(parsers)
 
   --- Attach treesitter to a buffer
@@ -63,6 +68,10 @@ do
       -- like typescriptreact -> tsx and sh -> bash are handled for us
       local language = vim.treesitter.language.get_lang(filetype)
       if not language then
+        return
+      end
+
+      if vim.tbl_contains(blocklist, language) then
         return
       end
 

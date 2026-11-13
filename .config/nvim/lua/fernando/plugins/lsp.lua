@@ -162,6 +162,7 @@ local servers = {
   html = {},
   jsonls = {},
   yamlls = {},
+  rust_analyzer = {}
 
   -- tailwindcss = {},
   -- clojure_lsp = {},

@@ -4,5 +4,6 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 export EDITOR="nvim"
 export PATH="$HOME/.local/bin:$PATH"
-
 export FZF_DEFAULT_OPTS="--bind 'ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down'"
+
+. "$HOME/.cargo/env"
