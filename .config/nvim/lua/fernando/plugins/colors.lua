@@ -1,12 +1,9 @@
---- Colorschemes. `melange` is the active theme; the others are installed and
---- set up so `<leader>st` (theme search) can switch to them at any time.
 local pack = require("fernando.pack")
 
 vim.pack.add({
   pack.gh("savq/melange-nvim"),
   pack.gh("Aejkatappaja/sora"),
   pack.gh("vimcolorschemes/olive-crt.nvim"),
-  -- `name` keeps the data directory tidy even though the repo is `neovim`
   { src = pack.gh("rose-pine/neovim"), name = "rose-pine" },
 })
 
@@ -37,4 +34,3 @@ require("rose-pine").setup({
     -- Visual = { fg = "text", blend = 30 },
   },
 })
-
