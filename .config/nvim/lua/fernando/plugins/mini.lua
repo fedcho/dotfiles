@@ -58,3 +58,5 @@ statusline.section_mode = function(args)
   local mode, mode_hl = orig_sm(args)
   return string.upper(mode), mode_hl
 end
+
+require("mini.comment").setup({})

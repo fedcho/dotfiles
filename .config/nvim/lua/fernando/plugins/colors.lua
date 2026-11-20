@@ -3,9 +3,15 @@ local pack = require("fernando.pack")
 vim.pack.add({
   pack.gh("savq/melange-nvim"),
   pack.gh("Aejkatappaja/sora"),
+  pack.gh("Aejkatappaja/cendre"),
   pack.gh("vimcolorschemes/olive-crt.nvim"),
   { src = pack.gh("rose-pine/neovim"), name = "rose-pine" },
+  pack.gh("RazikSF/lumina-themes"),
+  pack.gh("ntk148v/lauds"),
+  pack.gh("jonestristand/dune.nvim"),
 })
+
+vim.g.lumina_flavor = "quartz"
 
 require("sora").setup({})
 
@@ -34,3 +40,12 @@ require("rose-pine").setup({
     -- Visual = { fg = "text", blend = 30 },
   },
 })
+
+vim.keymap.set("n", "<leader>td", function() 
+  if vim.o.background == "dark" then 
+    vim.o.background = "light"
+    return
+  end
+
+  vim.o.background = "dark"
+end, { desc = "[T]oggle [D]ark/light background" })
