@@ -15,6 +15,6 @@ require("fernando.keymaps")
 require("fernando.autocommands")
 require("fernando.plugins")
 
-vim.cmd.colorscheme("lumina")
+vim.cmd.colorscheme("sora")
 
 -- vim: ts=2 sts=2 sw=2 et

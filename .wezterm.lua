@@ -7,7 +7,7 @@ config.window_decorations = "RESIZE"
 config.window_background_opacity = 0.95
 config.send_composed_key_when_left_alt_is_pressed = true
 config.enable_kitty_keyboard = true
-config.color_scheme = "lumina-quartz-dark"
+config.color_scheme = "sora"
 config.skip_close_confirmation_for_processes_named = {}
 
 config.font_size = 14
